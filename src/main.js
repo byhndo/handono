@@ -1,4 +1,3 @@
-
 import { createApp, ref, watch, onMounted, nextTick } from 'vue'
 import { createRouter, createWebHashHistory, useRoute, useRouter } from 'vue-router'
 import './style.css'
