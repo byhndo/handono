@@ -7,7 +7,8 @@ import $ from 'jquery'
 import NavBar from './components/NavBar.vue'
 
 
-window.addEventListener("load", function () {
+//window.addEventListener("load", function () {
+onMounted(() => {
 	
 var width = 100,
   perfData = window.performance.timing,
