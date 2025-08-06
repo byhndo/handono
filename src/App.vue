@@ -8,6 +8,7 @@ import animePath from './utils/animePath';
 import preloadImages from './utils/preloadImages';
 import setupReveal from './utils/setupReveal';
 import NavBar from './components/NavBar.vue';
+import Particles from './utils/Particles';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
