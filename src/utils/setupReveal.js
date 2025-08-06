@@ -1,4 +1,15 @@
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SplitText from "gsap/SplitText";
+
+gsap.registerPlugin(ScrollTrigger, SplitText);
+
 export default function setupReveal(container) {
+const easing = "expoScale(0.5,7,none)";
+const dur = 1;
+const once = "play none none reset";
+const delaytl = .5;
+	
 container.ctx = gsap.context(() => {	
 	
 const RevealBoxsme = container.querySelectorAll(".boxme");
