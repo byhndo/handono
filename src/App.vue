@@ -49,12 +49,12 @@ const updateButtonColors = (path) => {
   });
 };
 	  
-    const beforeEnter = async (el, done) => {
-      await preloadImages(el);       
-      await nextTick();                    
-      ScrollTrigger.refresh();
-      done();
-    };
+ beforeEnter: async (el, done) => {
+  await preloadImages(el);
+  await nextTick();
+  done(); 
+  requestAnimationFrame(() => ScrollTrigger.refresh());
+}
 
     const afterEnter = async (el, done) => {                              
       await nextTick();
