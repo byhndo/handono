@@ -136,7 +136,7 @@ const updateButtonColors = (path) => {
 
 <template>
 <div :class="['bg', bg]">
-<NavBar />
+  <NavBar ref="navBarRef" />
 <div class="preloader-wrap">
  <div class="intro-screen__title">
     <div class="wrapbtnloader theme-loader">
