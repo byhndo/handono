@@ -180,9 +180,6 @@ function preloadImages(container) {
   return Promise.all(promises);
 }
 	
-const { createApp, ref, watch, onMounted, nextTick } = Vue;
-const { createRouter, createWebHistory, useRoute, useRouter } = VueRouter;
-
 const app = createApp({
   setup() {
     const route = useRoute();
