@@ -10,8 +10,8 @@
 <feTurbulence type="fractalNoise" baseFrequency="0.07 0.3" numOctaves="1" seed="1" result="noise"></feTurbulence>
 <feDisplacementMap in="goo" in2="noise" scale="0" result="displacement"></feDisplacementMap>
 <feComposite in="SourceGraphic" in2="displacement" operator="atop"></feComposite>			 
-</defs>
 </filter> 
+</defs>
 </svg>
 <h3 class="one">Let Me Talk</h3>
 </div>
