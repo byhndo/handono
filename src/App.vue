@@ -1,4 +1,6 @@
 <script setup>
+import { gsap } from 'gsap'
+import $ from 'jquery'
 import NavBar from './components/NavBar.vue'
 </script>
 
