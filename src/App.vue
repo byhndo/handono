@@ -2,9 +2,9 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { gsap } from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 import $ from 'jquery'
 import NavBar from './components/NavBar.vue'
-
 
 
 window.addEventListener("load", function () {
