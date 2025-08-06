@@ -103,11 +103,11 @@ Koleksi beberapa foto momen berharga, setidaknya untuk saya, yang berhasil saya 
 <!-- footer -->
 
 </div>
-<!-- sub2 -->
-    
-setup() {
-    const currentYear = Vue.ref(new Date().getFullYear());
-    return { currentYear };
-}
-		
+<!-- sub2 -->		
 </template>
+
+<script setup>
+import { ref } from 'vue'
+
+const currentYear = ref(new Date().getFullYear())
+</script>
