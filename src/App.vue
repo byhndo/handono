@@ -895,8 +895,12 @@ tl.to(footer, {
 <template>
 <div :class="['bg', bg]">
   <NavBar />
+<router-view v-slot="{ Component }">
+  <transition appear name="slide-fade" mode="out-in" @before-enter="beforeEnter" @after-enter="afterEnter" @after-leave="afterLeave">
+    <component :is="Component" :key="$route.fullPath" />
+  </transition>
+</router-view>
 </div>
-  <router-view />
 </template>
 
 
