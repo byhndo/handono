@@ -3,6 +3,7 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import { createRouter, createWebHashHistory } from 'vue-router';
 import routes from './routes';
+
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
