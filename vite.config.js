@@ -4,7 +4,7 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   base: '/handono/',     
   build: {
-    outDir: 'docs'       
+    outDir: 'dist'        
   },
   plugins: [vue()],
 })
