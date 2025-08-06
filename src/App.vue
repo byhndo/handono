@@ -7,7 +7,7 @@ import { ref, watch, onMounted, nextTick } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/all';
-	import ScrollTrigger from 'gsap/ScrollTrigger';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import animateLoader from './utils/animateLoader';
 import animePath from './utils/animePath';
 import preloadImages from './utils/preloadImages';
