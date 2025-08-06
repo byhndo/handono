@@ -7,6 +7,7 @@ import { ref, watch, onMounted, nextTick } from 'vue';
 import gsap from 'gsap';
 import SplitText from 'gsap/SplitText';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import $ from 'jquery';
 import { useRoute, useRouter } from 'vue-router';
 import animateLoader from './utils/animateLoader';
 import animePath from './utils/animePath';
