@@ -6,10 +6,6 @@ gsap.registerPlugin(SplitText, ScrollTrigger);
 
 
 export default function contentShow() {
-const easing = "expoScale(0.5,7,none)";
-const dur = 1;
-const once = "play none none reset";
-const delaytl = .5;
 
 document.documentElement.style.overflow = 'auto';
 document.body.style.overflow = 'auto';
