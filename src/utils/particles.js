@@ -1,4 +1,4 @@
-import anime from 'animejs';
+import anime from './anime.js';
 
 const is = {
   arr: a => Array.isArray(a),
