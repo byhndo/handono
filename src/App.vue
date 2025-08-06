@@ -121,17 +121,6 @@ const updateButtonColors = (path) => {
         });
        }
     );
-
-    return {
-      bg,
-      goToBio,
-      goToPhotos,
-      beforeEnter,
-      afterEnter,
-      afterLeave,
-      btnNav1,
-      btnNav2
-    };	
 </script>
 
 <template>
