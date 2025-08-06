@@ -1,13 +1,19 @@
-import { createApp, ref, watch, onMounted, nextTick } from 'vue'
-import { createRouter, createWebHashHistory, useRoute, useRouter } from 'vue-router'
 import './style.css'
-import App from './App.vue'
-import routes from './router' 
+import { createApp } from 'vue';
+import App from './App.vue';
+import { createRouter, createWebHashHistory } from 'vue-router';
+import routes from './routes';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import SplitText from 'gsap/SplitText';
+
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes
-})
+});
+
 
 const app = createApp({
   setup() {
