@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import gsap from 'gsap';
+import SplitText from 'gsap/SplitText';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { useRoute, useRouter } from 'vue-router';
 import animePath from './utils/animePath';
