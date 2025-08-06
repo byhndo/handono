@@ -4,10 +4,10 @@ import './assets/normalize.css';
 import './assets/particles.css';
 	
 import { ref, watch, onMounted, nextTick } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 import gsap from 'gsap';
 import SplitText from 'gsap/SplitText';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { useRoute, useRouter } from 'vue-router';
 import animateLoader from './utils/animateLoader';
 import animePath from './utils/animePath';
 import preloadImages from './utils/preloadImages';
