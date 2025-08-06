@@ -1,4 +1,3 @@
-```yaml
 name: Deploy to GitHub Pages
 
 on:
@@ -22,7 +21,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'   # ✅ INI PENTING. Harus ADA dan ANGKA-nya 18
+          node-version: '18'
 
       - name: Install dependencies
         run: npm install
