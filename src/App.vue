@@ -1,16 +1,21 @@
 <script setup>
-import { ref, watch, onMounted, nextTick } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import animePath from './utils/animePath' 
-import preloadImages from './utils/preloadImages' 
-import setupReveal from './utils/setupReveal' 
-import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
-import $ from 'jquery'
-import NavBar from './components/NavBar.vue'
+import { ref, onMounted } from 'vue';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import { useRoute, useRouter } from 'vue-router';
+import animePath from './utils/animePath';
+import preloadImages from './utils/preloadImages';
+import setupReveal from './utils/setupReveal';
+import NavBar from './components/NavBar.vue';
 
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
-onMounted(() => {
+const route = useRoute();
+const router = useRouter();
+const bg = ref('bio');
+const firstLoad = ref(true);
+
+onMounted(async () => {
 	
 var width = 100,
   perfData = window.performance.timing,
@@ -52,7 +57,13 @@ async function animateLoader() {
   const DOM = {};
   DOM.intro = document.querySelector(".preloader-wrap");
   DOM.shape = DOM.intro.querySelector("svg.shape");
-  DOM.path = DOM.intro.querySelector("path.goey");	
+  DOM.path = DOM.intro.querySelector("path.goey");
+
+  if (!DOM.intro || !DOM.shape || !DOM.path) {
+    console.warn("Preloader elements not found");
+  return;
+  }
+	
   let tl = gsap.timeline({
   paused: true,
   onComplete: () => {
@@ -146,7 +157,6 @@ async function animateLoader() {
 
 animateLoader();
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
 function contentShow() {
 const easing = "expoScale(0.5,7,none)";
 const dur = 1;
