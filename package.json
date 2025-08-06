@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "vue": "^3.5.18",
+    "vue-router": "^4.3.0",
     "gsap": "^3.12.5",
     "jquery": "^3.7.1"
   },
