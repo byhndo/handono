@@ -1,5 +1,8 @@
 <script setup>
 import './style.css';
+import './assets/normalize.css';
+import './assets/particles.css';
+	
 import { ref, watch, onMounted, nextTick } from 'vue';
 import gsap from 'gsap';
 import SplitText from 'gsap/SplitText';
