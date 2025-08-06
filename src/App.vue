@@ -143,8 +143,15 @@ const afterEnter = async (el, done) => {
 <svg id="photos" class="transition transition-photos" viewBox="0 0 100 100" preserveAspectRatio="none">
   <path id="photosPath" fill="var(--dark)" d="M 0 100 V 100 Q 50 100 100 100 V 100 z" />
 </svg>
-  <NavBar ref="navBarRef" />
 	
+<NavBar
+  :goToBio="goToBio"
+  :goToPhotos="goToPhotos"
+  :btnNav1="btnNav1"
+  :btnNav2="btnNav2"
+  ref="navBarRef"
+/>
+
 <main>
 <div class="header">
 <div class="indicator">
