@@ -26,58 +26,58 @@ Koleksi beberapa foto momen berharga, setidaknya untuk saya, yang berhasil saya 
 
 <div class="grid">	
 <div class='item'>
-<img src="../img/1.webp">		  
+<img src="/img/1.webp">		  
 </div>
 <div class='item'>
-<img src="../img/2.webp">
+<img src="/img/2.webp">
 </div>
 <div class='item'>
-<img src="../img/3.webp">
+<img src="/img/3.webp">
 </div>
 <div class='item'>
-<img src="../img/4.webp">
+<img src="/img/4.webp">
 </div>
 <div class='item'>
-<img src="../img/5.webp">
+<img src="/img/5.webp">
 </div>
 <div class='item'>
-<img src="../img/6.webp">
+<img src="/img/6.webp">
 </div>
 <div class='item'>
-<img src="../img/7.webp">
+<img src="/img/7.webp">
 </div>
 <div class='item'>
-<img src="../img/8.webp">
+<img src="/img/8.webp">
 </div>
 <div class='item'>
-<img src="../img/9.webp">
+<img src="/img/9.webp">
 </div>
 <div class='item'>
-<img src="../img/11.webp">
+<img src="/img/11.webp">
 </div>
 <div class='item'>
-<img src="../img/12.webp">
+<img src="/img/12.webp">
 </div>
 <div class='item'>
-<img src="../img/13.webp">
+<img src="/img/13.webp">
 </div>
 <div class='item'>
-<img src="../img/14.webp">
+<img src="/img/14.webp">
 </div>
 <div class='item'>
-<img src="../img/15.webp">
+<img src="/img/15.webp">
 </div>
 <div class='item'>
-<img src="../img/16.webp">
+<img src="/img/16.webp">
 </div>
 <div class='item'>
-<img src="../img/21.webp">
+<img src="/img/21.webp">
 </div>
 <div class='item'>
-<img src="../img/23.webp">
+<img src="/img/23.webp">
 </div>
 <div class='item'>
-<img src="../img/35.webp">
+<img src="/img/35.webp">
 </div>
 </div>
 
