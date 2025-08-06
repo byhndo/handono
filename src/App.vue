@@ -17,7 +17,6 @@ import anime from 'animejs';
 import Particles from './utils/particles.js';
 import Lenis from '@studio-freight/lenis';
 
-
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const route = useRoute();
