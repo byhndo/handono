@@ -182,12 +182,6 @@ function preloadImages(container) {
 	
 const app = createApp({
   setup() {
-    const route = useRoute();
-    const router = useRouter();
-    
-    const bg = ref('bio');
-    const firstLoad = ref(true);
-
     const btnNav1 = ref(null);
     const btnNav2 = ref(null);
 
