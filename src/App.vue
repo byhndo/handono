@@ -94,17 +94,24 @@ const updateButtonColors = (path) => {
     animePath(bg.value);      
     };
 
-    onMounted(() => {	    
-      if (route.path !== '/bio') {
-        router.replace('/bio');
-        bg.value = 'bio';
-      }
-      nextTick(() => {
-	updateButtonColors(route.path); 
-        triggerAnimation();
-        firstLoad.value = false;
-      });
-    });
+    onMounted(async () => {
+  if (route.path !== '/bio') {
+    await router.replace('/bio');
+    bg.value = 'bio';
+  }
+
+  await nextTick();
+
+  animateLoader(() => {
+    updateButtonColors(route.path);
+    triggerAnimation();
+    firstLoad.value = false;
+  });
+
+  document.getElementById('btnload')?.addEventListener('click', () => {
+    document.querySelector('.preloader-wrap')?.classList.add('hide');
+  });
+});
 
     watch(
       () => route.path,
