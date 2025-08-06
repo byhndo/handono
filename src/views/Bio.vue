@@ -129,3 +129,9 @@ Saya tidak terlalu suka dengan kalimat&ndash;kalimat bijak orang lain, tapi seti
 <!-- sub1 --> 
 
 </template>
+
+<script setup>
+import { ref } from 'vue'
+
+const currentYear = ref(new Date().getFullYear())
+</script>
