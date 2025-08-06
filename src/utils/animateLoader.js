@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import SplitText from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import contentShow from './contentShow.js'; 
 import Particles from './particles.js'; 
