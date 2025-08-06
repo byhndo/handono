@@ -20,8 +20,8 @@ const paths = {
 	
 if (bg === 'bio' && bioPath) {
 
- const tl1 = gsap.timeline()
- 
+ const tl1 = gsap.timeline();
+ tl1
     .set(bioPath, {attr: { d: paths.step1.unfilled }})
     .to(bioPath,{duration: 1.1, ease: "power3.in", attr: { d: paths.step1.inBetween }}, 0)
     .to(bioPath, {duration: .5, ease: "power1", attr: { d: paths.step1.filled } });
@@ -29,8 +29,8 @@ if (bg === 'bio' && bioPath) {
 }
 else if (bg === 'photos' && photosPath) {
 
- const tl2 = gsap.timeline() 
-  
+ const tl2 = gsap.timeline(); 
+  tl2
     .set(photosPath, {attr: { d: paths.step2.unfilled }})
     .to(photosPath, {duration: 1.1, ease: "power3.in", attr: { d: paths.step2.inBetween }}, 0)
     .to(photosPath, {duration: .5, ease: "power1", attr: { d: paths.step2.filled } });  
