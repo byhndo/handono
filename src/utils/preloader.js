@@ -1,141 +1,133 @@
 import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import Particles from './particles.js'; 
+gsap.registerPlugin(ScrollTrigger);
 
-var width = 100,
-  perfData = window.performance.timing,
-  EstimatedTime = Math.abs(perfData.loadEventEnd - perfData.navigationStart),
-  time = Math.floor((EstimatedTime / 1000) % 60) * 100;
+function animateValue(element, start, end, duration) {
+  const range = end - start;
+  let current = start;
+  const increment = end > start ? 1 : -1;
+  const stepTime = Math.abs(Math.floor(duration / range));
 
-$(".loadbar").animate({
-  width: width + "%"
-}, time);
-
-var PercentageID = $("#precent"),
-  start = 0,
-  end = 100,
-  duration = time;
-animateValue(PercentageID, start, end, duration);
-
-function animateValue(id, start, end, duration) {
-  var range = end - start,
-    current = start,
-    increment = end > start ? 1 : -1,
-    stepTime = Math.abs(Math.floor(duration / range)),
-    obj = $(id);
-
-  var timer = setInterval(function () {
+  const timer = setInterval(() => {
     current += increment;
-    $(obj).text(current);
-    if (current == end) {
+    element.textContent = current;
+    if (current === end) {
       clearInterval(timer);
     }
   }, stepTime);
-} 
+}
 
 export default async function animateLoader() {
-  await new Promise((resolve) => setTimeout(resolve, time));
-	
-  let percentBar = document.getElementById("precent");
-  let loadingBar = document.getElementById("loader");
+  const perfData = window.performance.timing;
+  const estimatedTime = Math.abs(perfData.loadEventEnd - perfData.navigationStart);
+  const time = Math.floor((estimatedTime / 1000) % 60) * 100;
 
-  const DOM = {};
-  DOM.intro = document.querySelector(".preloader-wrap");
+  const loadbar = document.querySelector(".loadbar");
+  const percentEl = document.getElementById("precent");
+
+  if (loadbar) {
+    gsap.to(loadbar, { width: "100%", duration: time / 1000 });
+  }
+
+  if (percentEl) {
+    animateValue(percentEl, 0, 100, time);
+  }
+
+  await new Promise((resolve) => setTimeout(resolve, time));
+
+  const DOM = {
+    intro: document.querySelector(".preloader-wrap")
+  };
+  if (!DOM.intro) return;
+
   DOM.shape = DOM.intro.querySelector("svg.shape");
   DOM.path = DOM.intro.querySelector("path.goey");
 
-  if (!DOM.intro || !DOM.shape || !DOM.path) {
-    console.warn("Preloader elements not found");
-  return;
-  }
-	
+  const loadingBar = document.getElementById("loader");
+
   let tl = gsap.timeline({
-  paused: true,
-  onComplete: () => {
-    contentShow(); 
-    ScrollTrigger.refresh(); 
-   }
+    paused: true,
+    onComplete: () => {
+      ScrollTrigger.refresh();
+      contentShow(); 
+    }
   });
-		    	
+
   tl.to(".percentage", {
     autoAlpha: 0,
     duration: 1,
     delay: 1,
     ease: "none",
     onComplete: () => {
-      percentBar.style.display = "none";
+      if (percentEl) percentEl.style.display = "none";
       tl.to("#loader", {
         autoAlpha: 0,
         duration: 1,
         ease: "quart.out",
         onComplete: () => {
-          loadingBar.style.display = "none";
+          if (loadingBar) loadingBar.style.display = "none";
           tl.to(DOM.intro, {
             y: "-200vh",
             delay: 0.1,
             duration: 2,
             ease: "quad.inOut"
           });
-          gsap.to(DOM.path, {
-            duration: 1.2,
-            ease: "linear",
-            attr: { d: DOM.path.getAttribute("pathdata:id") }
-          });
+          if (DOM.path) {
+            gsap.to(DOM.path, {
+              duration: 1.2,
+              ease: "linear",
+              attr: { d: DOM.path.getAttribute("pathdata:id") }
+            });
+          }
         }
       });
     }
-  });  
-	    	  	
-  (function show() {
-    const arrOpts = [{      
+  });
+
+  const btns = document.querySelectorAll(".wrapbtnloader");
+  btns.forEach((container, idx) => {
+    const bttn = container.querySelector("button.particles-button");
+    if (!bttn) return;
+
+    const particles = new Particles(bttn, {
       direction: 'bottom',
       duration: 1000,
       easing: 'easeInExpo'
-    }];
-
-    const it = document.querySelectorAll(".wrapbtnloader");
-    it.forEach((il, pos) => {
-      let bttn = il.querySelector("button.particles-button");
-      if (!bttn) return;
-      let particlesOpts = arrOpts[pos];
-      const particles = new Particles(bttn, particlesOpts);
-
-      gsap.to(bttn, {
-        autoAlpha: 0,
-        onComplete: () => {
-          particles.integrate({
-            duration: 900,
-            easing: "easeOutSine"
-          });
-          gsap.to(bttn, {
-            duration: 1,
-            onComplete: () => {
-              bttn.style.opacity = "1";
-              bttn.style.visibility = "visible";
-	      bttn.style.pointerEvents = "none";
-	      gsap.to(bttn, {
-                onComplete: () => {
-                  bttn.style.pointerEvents = "none"; 
-                  gsap.to(bttn, {
-                  onComplete: () => {
-                  bttn.style.pointerEvents = "auto"; 
-                  }
-                 });
-                }
-              }); 
-            }
-          });
-        }
-      });
-
-      gsap.to(bttn, {
-        onComplete: () => {
-          bttn.addEventListener("click", function () {
-            particles.disintegrate();
-            tl.play();
-          });
-        }
-      });
     });
-  })();
-}
 
-animateLoader();
+    gsap.to(bttn, {
+      autoAlpha: 0,
+      onComplete: () => {
+        particles.integrate({
+          duration: 900,
+          easing: "easeOutSine"
+        });
+
+        gsap.to(bttn, {
+          duration: 1,
+          onComplete: () => {
+            bttn.style.opacity = "1";
+            bttn.style.visibility = "visible";
+            bttn.style.pointerEvents = "none";
+            gsap.to(bttn, {
+              onComplete: () => {
+                bttn.style.pointerEvents = "none";
+                gsap.to(bttn, {
+                  onComplete: () => {
+                    bttn.style.pointerEvents = "auto";
+                  }
+                });
+              }
+            });
+          }
+        });
+      }
+    });
+
+    bttn.addEventListener("click", () => {
+      particles.disintegrate();
+      tl.play();
+    });
+  });
+}
