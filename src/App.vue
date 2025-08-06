@@ -169,19 +169,6 @@ $('html, body').css({
   'overflow': 'auto',
   'height': 'auto'
 });	
-
-function preloadImages(container) {
-  const images = container.querySelectorAll("img");
-  const promises = [];
-  images.forEach((img) => {
-    if (img.complete) return;
-    promises.push(new Promise((resolve) => {
-      img.onload = img.onerror = resolve;
-    }));
-  });
-  return Promise.all(promises);
-}
-
 				
 const title = document.querySelector("h1");
 const feBlur = document.querySelector(`#noisetitle feGaussianBlur`);
