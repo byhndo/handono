@@ -1,7 +1,10 @@
 import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import contentShow from './contentShow.js'; 
 import Particles from './particles.js'; 
-gsap.registerPlugin(ScrollTrigger);
+
+gsap.registerPlugin(ScrollTrigger, SplitText);
+
 
 function animateValue(element, start, end, duration) {
   const range = end - start;
@@ -21,7 +24,7 @@ function animateValue(element, start, end, duration) {
 export default async function animateLoader() {
   const perfData = window.performance.timing;
   const estimatedTime = Math.abs(perfData.loadEventEnd - perfData.navigationStart);
-  const time = Math.floor((estimatedTime / 1000) % 60) * 100;
+  const time = Math.max(Math.floor((estimatedTime / 1000) % 60) * 100, 1200); 
 
   const loadbar = document.querySelector(".loadbar");
   const percentEl = document.getElementById("precent");
