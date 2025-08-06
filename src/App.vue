@@ -1,6 +1,6 @@
 <script setup>
 import './style.css';
-import { ref, onMounted } from 'vue';
+import { ref, watch, onMounted, nextTick } from 'vue';
 import gsap from 'gsap';
 import SplitText from 'gsap/SplitText';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -9,8 +9,8 @@ import animePath from './utils/animePath';
 import preloadImages from './utils/preloadImages';
 import setupReveal from './utils/setupReveal';
 import NavBar from './components/NavBar.vue';
-import runPreloader from './utils/preloader.js'
-import Particles from './utils/Particles';
+// import runPreloader from './utils/preloader.js'
+// import Particles from './utils/Particles';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
