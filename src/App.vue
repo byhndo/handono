@@ -8,8 +8,6 @@ import NavBar from './components/NavBar.vue'
 
 import { ref, watch, onMounted, nextTick } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import animePath from './utils/animePath' 
 import preloadImages from './utils/preloadImages' 
 import setupReveal from './utils/setupReveal' 
