@@ -18,11 +18,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Setup Node.js 18
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'npm' # ← ini juga bantu lebih cepat
+          cache: 'npm'
 
       - name: Check Node version
         run: node -v
@@ -34,6 +34,10 @@ jobs:
         run: npm run build
 
       - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
