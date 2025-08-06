@@ -13,7 +13,7 @@ import preloadImages from './utils/preloadImages';
 import setupReveal from './utils/setupReveal';
 import NavBar from './components/NavBar.vue';
 // import runPreloader from './utils/preloader.js'
-import anime from '@/utils/anime.min.js';
+import anime from '@/utils/anime.js';
 import Particles from '@/utils/particles.js';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
