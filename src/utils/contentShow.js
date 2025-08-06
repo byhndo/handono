@@ -1,20 +1,21 @@
 import gsap from 'gsap';
 import SplitText from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
+import Particles from './particles.js'; 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 
 export default function contentShow() {
-const easing = "expoScale(0ne)";
+const easing = "expoScale(0.5,7,none)";
 const dur = 1;
 const once = "play none none reset";
 const delaytl = .5;
 
-$('html, body').css({
-  'overflow': 'auto',
-  'height': 'auto'
-});	
+document.documentElement.style.overflow = 'auto';
+document.body.style.overflow = 'auto';
+document.documentElement.style.height = 'auto';
+document.body.style.height = 'auto';
+
 				
 const title = document.querySelector("h1");
 const feBlur = document.querySelector(`#noisetitle feGaussianBlur`);
@@ -49,8 +50,8 @@ const titletl = gsap.timeline({
       opacity: 1
 }, 0);    
 	  
-let subtitle = SplitText.create(".sub-title", { type: "chars, words" });
-  
+let subtitle = new SplitText(".sub-title", { type: "chars, words" });
+
 gsap.set(subtitle.chars, {
   autoAlpha:0,
   opacity:0
