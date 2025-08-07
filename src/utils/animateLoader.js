@@ -25,7 +25,7 @@ function animateValue(element, start, end, duration) {
 export default async function animateLoader() {
   const perfData = window.performance.timing;
   const estimatedTime = Math.abs(perfData.loadEventEnd - perfData.navigationStart);
-  const time = Math.max(Math.floor((estimatedTime / 1000) % 60) * 100, 1200); 
+  time = Math.floor((EstimatedTime / 1000) % 60) * 100;
 
   const loadbar = document.querySelector(".loadbar");
   const percentEl = document.getElementById("precent");
@@ -52,9 +52,9 @@ export default async function animateLoader() {
 
   let tl = gsap.timeline({
     paused: true,
-    onComplete: () => {
-      ScrollTrigger.refresh();
+    onComplete: () => {     
       contentShow(); 
+      ScrollTrigger.refresh();
     }
   });
 
