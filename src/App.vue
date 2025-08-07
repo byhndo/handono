@@ -70,25 +70,21 @@ const afterLeave = (el) => {
   }
 };
 
-   const goToBio = () => {
-      if (route.path === '/bio') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      
-      } else {
-        bg.value = 'bio';
-        router.push('/bio');
-      }
-    };
+const goToBio = () => {
+  if (route.path !== '/bio') {
+    bg.value = 'bio';
+    router.push('/bio');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+};
 
-    const goToPhotos = () => {
-      if (route.path === '/photos') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-     
-      } else {
-        bg.value = 'photos';
-        router.push('/photos');
-     }
-    };
+const goToPhotos = () => {
+  if (route.path !== '/photos') {
+    bg.value = 'photos';
+    router.push('/photos');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+};
 
     const triggerAnimation = () => {
     animePath(bg.value);      
