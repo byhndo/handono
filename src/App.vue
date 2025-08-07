@@ -159,7 +159,8 @@ watch(
     } else {
       console.warn('btnNav1 or btnNav2 belum tersedia saat route berubah:', btnNav1.value, btnNav2.value);
     }
-
+	  
+    animePath(bg.value);
     triggerAnimation();
 
     requestAnimationFrame(() => {
