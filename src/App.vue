@@ -112,6 +112,11 @@ await router.isReady();
     document.querySelector('.preloader-wrap')?.classList.add('hide');
   });
 
+document.documentElement.style.overflow = 'auto';
+    document.body.style.overflow = 'auto';
+    document.documentElement.style.height = 'auto';
+    document.body.style.height = 'auto';
+		
 const lenis = new Lenis({
  duration: 2,
  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
