@@ -24,7 +24,7 @@ function animateValue(element, start, end, duration) {
 export default async function animateLoader() {
   const perfData = window.performance.timing;
   const estimatedTime = Math.abs(perfData.loadEventEnd - perfData.navigationStart);
-  const time = Math.max(Math.floor((estimatedTime / 1000) % 60) * 100, 1200); 
+  const time = Math.max(Math.floor((estimatedTime / 1000) % 60) * 100); 
   const loadbar = document.querySelector(".loadbar");
   const percentEl = document.getElementById("precent");
 
