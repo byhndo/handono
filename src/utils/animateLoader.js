@@ -61,7 +61,7 @@ export default async function animateLoader() {
     ease: "none",
     onComplete: () => {
       percentBar.style.display = "none";
-      gsap.to("#loader", {
+      tl.to("#loader", {
         autoAlpha: 0,
         duration: 1,
         ease: "quart.out",
