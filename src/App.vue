@@ -142,7 +142,7 @@ watch(
       bg.value = 'photos';
     }
 	  
-    nextTick(() => {
+    animateLoader(() => {
 	updateButtonColors(newPath);
         requestAnimationFrame(() => {
           window.scrollTo({ top: 0, behavior: 'smooth' });
