@@ -134,18 +134,22 @@ animateLoader(() => {
 
 watch(
   () => route.path,
-async (newPath) => {
+  async (newPath) => {
     bg.value = newPath === '/bio' ? 'bio' : 'photos';
-    if (firstLoad.value) return;   	
+
+    animatePath(bg.value);
+
+    if (firstLoad.value) return;
+
     await nextTick();
-		  
+
     updateButtonColors(newPath);
     triggerAnimation();
-	
+
     requestAnimationFrame(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    });        
-});  
+    });
+});
 </script>
 
 <template>
