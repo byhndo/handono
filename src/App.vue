@@ -52,7 +52,6 @@ const btnNav2 = ref(null);
 const beforeEnter = async (el, done) => {
   await nextTick();
   await preloadImages(el);
-  ScrollTrigger.refresh();
   done(); 
 }
 
@@ -107,17 +106,12 @@ const triggerAnimation = () => {
   animePath(bg.value);      
 };
 
-onMounted(async() => {	
-await router.isReady();
-  if (firstLoad.value && route.path !== '/bio') {
-    await router.push('/bio');
-}
-
+onMounted(async () => {
+  await router.isReady();
   bg.value = route.path === '/bio' ? 'bio' : 'photos';
-	
   const lenis = new Lenis({
     duration: 2,
-    easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     orientation: 'vertical',
     direction: 'vertical',
     gestureDirection: 'vertical',
@@ -127,27 +121,29 @@ await router.isReady();
     wheelMultiplier: 2,
     touchInertiaMultiplier: 35,
     syncTouch: true,
-    autoResize: true
+    autoResize: true,
   });
-
   lenis.on('scroll', ScrollTrigger.update);
-
   gsap.ticker.add((time) => {
     lenis.raf(time * 1000);
   });
-
   gsap.ticker.lagSmoothing(0);
-await nextTick();
-animateLoader(() => { 
-    updateButtonColors(route.path); 
+  await nextTick();
+  animateLoader(() => {
+    updateButtonColors(route.path);
     triggerAnimation();
     firstLoad.value = false;
-  });		
-});
+  });
 
-watch(
-  () => route.path,
-  async (newPath) => {
+  const lenisInstance = lenis;
+
+  onUnmounted(() => {
+    lenisInstance.destroy();
+    gsap.ticker.remove(lenisInstance.raf);
+  });
+});
+	
+watch(() => route.path, async (newPath) => {
     bg.value = newPath === '/bio' ? 'bio' : 'photos';
     if (firstLoad.value) return;
     await nextTick();
