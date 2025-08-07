@@ -105,12 +105,14 @@ const triggerAnimation = () => {
   animePath(bg.value);      
 };
 
-onMounted(() => {
+onMounted(async () => {
+await router.isReady();
   if (route.path !== '/bio') {
- router.replace('/bio');
+ await router.replace('/bio');
     bg.value = 'bio';
   } 
 	
+await nextTick();
 	
   animateLoader(() => {  	  
     updateButtonColors(route.path);
@@ -158,7 +160,7 @@ watch(
     if (btnNav1.value && btnNav2.value) {
       updateButtonColors(newPath);
     } else {
-      console.warn('btnNav1 or btnNav2 belum tersedia saat route berubah:', btnNav1.value, btnNav2.value);
+      console.warn('btnNav1 atau btnNav2 belum tersedia saat route berubah:', btnNav1.value, btnNav2.value);
     }
 	  
     triggerAnimation();
