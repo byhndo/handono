@@ -69,7 +69,7 @@ const beforeEnter = async (el, done) => {
 
 	const afterEnter = async (el, done) => {
   await nextTick();
-  animateLoader(() => {
+  requestAnimationFrame(() => {
     ScrollTrigger.refresh();
     if (!firstLoad.value) {
       setupReveal(el);
