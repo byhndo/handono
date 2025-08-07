@@ -104,17 +104,13 @@ const goToPhotos = () => {
     animePath(bg.value);      
     };
 
-onMounted(async () => {
-  await router.isReady();
-
+onMounted(() => {
   if (route.path !== '/bio') {
     await router.replace('/bio');
     bg.value = 'bio';
   }
 
-  await nextTick();
-
-  animateLoader(() => {  	  
+  nextTick(() => {  	  
     updateButtonColors(route.path);
     triggerAnimation();
     firstLoad.value = false;
