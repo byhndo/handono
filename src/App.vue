@@ -78,6 +78,7 @@ const goToBio = async() => {
     bg.value = 'bio';
     await router.push('/bio');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    triggerAnimation();
   }
 };
 
@@ -86,6 +87,7 @@ const goToPhotos = async() => {
     bg.value = 'photos';
     await router.push('/photos');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    triggerAnimation();
   }
 };    
 
