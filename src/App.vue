@@ -57,7 +57,7 @@ const beforeEnter = async (el, done) => {
   done(); 
 }
 
-const afterEnter = async (el, done) => {                              
+/*const afterEnter = async (el, done) => {                              
   await router.isReady();
   await nextTick();
   requestAnimationFrame(() => {
@@ -65,7 +65,24 @@ const afterEnter = async (el, done) => {
     setupReveal(el);
     done();
   });    
-}; 
+}; */
+
+
+const afterEnter = async (el, done) => {
+ await router.isReady();
+ await nextTick();
+
+  animateLoader(() => {
+    ScrollTrigger.refresh();
+
+    if (!firstLoad.value) {
+      setupReveal(el);
+    }
+
+    done();
+  });
+};
+
 
 const afterLeave = (el) => {
   if (el.ctx) {
