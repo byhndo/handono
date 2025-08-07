@@ -105,13 +105,11 @@ const triggerAnimation = () => {
   animePath(bg.value);      
 };
 
-onMounted(async () => {
-await router.isReady();
+onMounted(() => {	    
   if (route.path !== '/bio') {
- await router.replace('/bio');
-  } 
-bg.value = 'bio';	
-await nextTick();
+    router.replace('/bio');
+    bg.value = 'bio';
+}
 	
   const lenis = new Lenis({
     duration: 2,
@@ -145,7 +143,7 @@ animateLoader(() => {
 
 watch(
   () => route.path,
-  async (newPath) => {
+ (newPath) => {
     if (firstLoad.value) return;
 
     if (newPath === '/bio') {
@@ -154,22 +152,21 @@ watch(
       bg.value = 'photos';
     }
 
-    await nextTick();
-
     if (btnNav1.value && btnNav2.value) {
       updateButtonColors(newPath);
     } else {
       console.warn('btnNav1 atau btnNav2 belum tersedia saat route berubah:', btnNav1.value, btnNav2.value);
     }
 	  
-    triggerAnimation();
+    nextTick(() => {
+	updateButtonColors(newPath);
+        requestAnimationFrame(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
-    requestAnimationFrame(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-);
-    
+        triggerAnimation();
+        });
+});  
 </script>
 
 <template>
