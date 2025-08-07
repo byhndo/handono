@@ -15,7 +15,6 @@ onMounted(() => {
 </script>
 
 <template>
-<div>
   
 <div class="wrapnav">
 <div class="nav theme">
@@ -26,6 +25,5 @@ onMounted(() => {
 </div>
 </div> 
 
-</div>
 </template>
 
