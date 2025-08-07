@@ -26,7 +26,7 @@ function animateValue(element, start, end, duration) {
   }, stepTime);
 }
 
-export default async function animateLoader(onComplete) {
+export default async function animateLoader() {
   const perfData = window.performance.timing;
   const estimatedTime = Math.abs(perfData.loadEventEnd - perfData.navigationStart);
   const time = Math.max(Math.floor((estimatedTime / 1000) % 60) * 100, 1200); 
@@ -76,14 +76,7 @@ const tl = gsap.timeline({
             y: "-200vh",
             delay: 0.1,
             duration: 2,
-            ease: "quad.inOut",
-      onComplete: () => {
-    requestAnimationFrame(() => {
-      contentShow();
-      ScrollTrigger.refresh();
-      if (typeof onComplete === 'function') onComplete();
-    });
-    }
+            ease: "quad.inOut"
           });          
             gsap.to(DOM.path, {
               duration: 1.2,
