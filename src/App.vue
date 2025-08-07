@@ -95,9 +95,10 @@ const triggerAnimation = () => {
   animePath(bg.value);      
 };
 
-onMounted(() => {	    
-  if (route.path !== '/bio') {
-    router.replace('/bio');
+onMounted(async() => {	
+await router.isReady();
+  if (firstLoad.value && route.path !== '/bio') {
+    await router.push('/bio');
     bg.value = 'bio';
 }
 	
