@@ -9,8 +9,8 @@ const props = defineProps({
 });
 
 onMounted(() => {
-  props.btnNav1.value = document.querySelector('.btn-nav-1');
-  props.btnNav2.value = document.querySelector('.btn-nav-2');
+  props.btnNav1.value = document.querySelector('.btn-about');
+  props.btnNav2.value = document.querySelector('.btn-photos');
 });
 </script>
 
