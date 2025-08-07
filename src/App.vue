@@ -73,23 +73,35 @@ const afterLeave = (el) => {
   }
 };
 
-const goToBio = async() => {
-  if (route.path !== '/bio') {
-    bg.value = 'bio';
-    await router.push('/bio');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    triggerAnimation();
-  }
+const goToBio = async () => {
+  if (route.path !== '/bio') {
+    bg.value = 'bio';
+    await router.push('/bio');
+  } else {
+   bg.value = 'bio';
+  }
+
+  requestAnimationFrame(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  triggerAnimation();
 };
 
-const goToPhotos = async() => {
-  if (route.path !== '/photos') {
-    bg.value = 'photos';
-    await router.push('/photos');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    triggerAnimation();
-  }
-};    
+const goToPhotos = async () => {
+  if (route.path !== '/photos') {
+    bg.value = 'photos';
+    await router.push('/photos');
+  } else {
+    bg.value = 'photos';
+  }
+
+  requestAnimationFrame(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  triggerAnimation();
+};
 
 const triggerAnimation = () => {
   animePath(bg.value);      
