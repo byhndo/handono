@@ -100,9 +100,9 @@ const afterEnter = async (el, done) => {
   }
 
   await nextTick();
+  updateButtonColors(route.path);
 
-  animateLoader(() => {
-    updateButtonColors(route.path);
+  animateLoader(() => {   
     triggerAnimation();
     firstLoad.value = false;
   });
