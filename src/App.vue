@@ -144,7 +144,7 @@ onMounted(async () => {
   gsap.ticker.lagSmoothing(0);
 });
 
-    watch(
+watch(
   () => route.path,
   async (newPath) => {
     if (firstLoad.value) return;
@@ -157,7 +157,12 @@ onMounted(async () => {
 
     await nextTick();
 
-    updateButtonColors(newPath);
+    if (btnNav1.value && btnNav2.value) {
+      updateButtonColors(newPath);
+    } else {
+      console.warn('btnNav1 or btnNav2 belum tersedia saat route berubah:', btnNav1.value, btnNav2.value);
+    }
+
     triggerAnimation();
 
     requestAnimationFrame(() => {
@@ -165,6 +170,7 @@ onMounted(async () => {
     });
   }
 );
+    
 </script>
 
 <template>
