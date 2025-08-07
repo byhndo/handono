@@ -98,12 +98,6 @@ export default async function animateLoader() {
       let particlesOpts = arrOpts[pos];
       const particles = new Particles(bttn, particlesOpts);
 
-    const particles = new Particles(bttn, {
-      direction: 'bottom',
-      duration: 1000,
-      easing: 'easeInExpo'
-    });
-
     gsap.to(bttn, {
       autoAlpha: 0,
       onComplete: () => {
