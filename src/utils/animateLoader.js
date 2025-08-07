@@ -52,10 +52,12 @@ export default async function animateLoader(done) {
   DOM.path = DOM.intro.querySelector("path.goey");
 
 const tl = gsap.timeline({
-    paused: true,
-    onComplete: done();
+  paused: true,
+  onComplete: () => {
+    done();
     ScrollTrigger.refresh();
-  });
+  }
+});
 
   tl.to(".percentage", {
     autoAlpha: 0,
