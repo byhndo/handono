@@ -94,6 +94,7 @@ const afterEnter = async (el, done) => {
     };
 
     onMounted(async () => {
+await router.isReady();
   if (route.path !== '/bio') {
     await router.replace('/bio');
     bg.value = 'bio';
