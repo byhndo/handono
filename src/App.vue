@@ -75,6 +75,7 @@ const goToBio = () => {
     bg.value = 'bio';
     router.push('/bio');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    triggerAnimation();
   }
 };
 
@@ -83,6 +84,7 @@ const goToPhotos = () => {
     bg.value = 'photos';
     router.push('/photos');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    triggerAnimation();
   }
 };
 
