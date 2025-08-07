@@ -137,18 +137,16 @@ watch(
   async (newPath) => {
     bg.value = newPath === '/bio' ? 'bio' : 'photos';
 
-    animatePath(bg.value);
-
     if (firstLoad.value) return;
 
     await nextTick();
 
     updateButtonColors(newPath);
-    triggerAnimation();
 
     requestAnimationFrame(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+    triggerAnimation();
 });
 </script>
 
