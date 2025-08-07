@@ -138,7 +138,8 @@ await router.isReady();
 
   gsap.ticker.lagSmoothing(0);
 await nextTick();
-animateLoader(() => {  	  
+animateLoader(() => {  
+    updateButtonColors(route.path); 
     triggerAnimation();
     firstLoad.value = false;
   });		
@@ -150,6 +151,7 @@ watch(
     bg.value = newPath === '/bio' ? 'bio' : 'photos';
     if (firstLoad.value) return;
     await nextTick();
+    updateButtonColors(newPath);
     requestAnimationFrame(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
