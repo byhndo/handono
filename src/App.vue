@@ -111,8 +111,9 @@ onMounted(async() => {
 await router.isReady();
   if (firstLoad.value && route.path !== '/bio') {
     await router.push('/bio');
-    bg.value = 'bio';
 }
+
+  bg.value = route.path === '/bio' ? 'bio' : 'photos';
 	
   const lenis = new Lenis({
     duration: 2,
@@ -136,12 +137,12 @@ await router.isReady();
   });
 
   gsap.ticker.lagSmoothing(0);
-
+await nextTick();
 animateLoader(() => {  	  
     updateButtonColors(route.path);
     firstLoad.value = false;
-  });	
 	triggerAnimation();
+  });		
 });
 
 watch(
