@@ -54,9 +54,8 @@ export default async function animateLoader() {
 
 const tl = gsap.timeline({
     paused: true,
-    onComplete: async () => {
+    onComplete: () => {
       contentShow();
-      await nextTick();
       setupReveal();
       ScrollTrigger.refresh();
    }
