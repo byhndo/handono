@@ -136,10 +136,10 @@ watch(
   () => route.path,
 async (newPath) => {
     bg.value = newPath === '/bio' ? 'bio' : 'photos';
-    
-    if (firstLoad.value) return;
-	
+        	
     await nextTick();
+	
+    if (firstLoad.value) return;
 
     animatePath(bg.value);
 	  
