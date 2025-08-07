@@ -13,10 +13,10 @@ import animePath from './utils/animePath';
 import preloadImages from './utils/preloadImages';
 import NavBar from './components/NavBar.vue';
 import anime from 'animejs/lib/anime.es.js';
-import Particles from './utils/particles.js';
+import Particles from './utils/particles';
 import Lenis from '@studio-freight/lenis';
-import contentShow from './utils/contentShow.js'; 
-//import setupReveal from './utils/setupReveal';
+import contentShow from './utils/contentShow'; 
+import setupReveal from './utils/setupReveal';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
