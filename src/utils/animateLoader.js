@@ -92,7 +92,7 @@ export default async function animateLoader() {
 
 
   const btns = document.querySelectorAll(".wrapbtnloader");
-  btns.forEach((container, pos) => {
+  btns.forEach((il, pos) => {
     const bttn = il.querySelector("button.particles-button");
       if (!bttn) return;
       let particlesOpts = arrOpts[pos];
