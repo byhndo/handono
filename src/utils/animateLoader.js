@@ -54,11 +54,12 @@ export default async function animateLoader() {
 
 const tl = gsap.timeline({
     paused: true,
-    onComplete: () => {     
+    onComplete: async () => {
+      await nextTick();
       contentShow();
       setupReveal();
       ScrollTrigger.refresh();
-      }   
+   }
   });
 
   tl.to(".percentage", {
