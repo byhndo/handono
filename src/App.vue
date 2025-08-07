@@ -124,15 +124,14 @@ await router.isReady();
       bg.value = 'photos';
     }
 
-    await nextTick(); 
+    await nextTick();
 
     updateButtonColors(newPath);
+    triggerAnimation();
 
     requestAnimationFrame(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-
-    triggerAnimation(); 
   }
 );
 </script>
