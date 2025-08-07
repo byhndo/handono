@@ -109,10 +109,6 @@ onMounted(async () => {
     firstLoad.value = false;
   });
 
-  document.getElementById('btnload')?.addEventListener('click', () => {
-    document.querySelector('.preloader-wrap')?.classList.add('hide');
-  });
-
   const lenis = new Lenis({
     duration: 2,
     easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
