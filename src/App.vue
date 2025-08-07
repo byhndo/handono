@@ -16,7 +16,7 @@ import NavBar from './components/NavBar.vue';
 import anime from 'animejs/lib/anime.es.js';
 import Particles from './utils/particles.js';
 import Lenis from '@studio-freight/lenis';
-import contentShow from './utils/contentShow.js'; 
+import contentShow from './utils/contentShow'; 
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
