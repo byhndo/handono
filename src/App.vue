@@ -136,10 +136,12 @@ watch(
   () => route.path,
 async (newPath) => {
     bg.value = newPath === '/bio' ? 'bio' : 'photos';
-    animatePath(bg.value);
+    
     if (firstLoad.value) return;
 	
     await nextTick();
+
+    animatePath(bg.value);
 	  
     updateButtonColors(newPath);
     triggerAnimation();
