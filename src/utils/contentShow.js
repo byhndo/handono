@@ -85,7 +85,7 @@ gsap.to('.indicator', {
   }
  });
 }
-}, "+=2");
+});
 	    
 (function () {
   const arrOpts = [
