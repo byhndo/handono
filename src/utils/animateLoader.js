@@ -26,7 +26,7 @@ function animateValue(element, start, end, duration) {
   }, stepTime);
 }
 
-export default async function animateLoader() {
+export default async function animateLoader(onComplete) {
   const perfData = window.performance.timing;
   const estimatedTime = Math.abs(perfData.loadEventEnd - perfData.navigationStart);
   const time = Math.max(Math.floor((estimatedTime / 1000) % 60) * 100, 1200); 
