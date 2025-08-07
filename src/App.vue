@@ -2,21 +2,21 @@
 import './assets/normalize.css';
 import './style.css';
 import './assets/particles.css';
-
+	
+import { ref, watch, onMounted, nextTick } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/all';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { ref, watch, onMounted, nextTick } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
 import animateLoader from './utils/animateLoader';
 import animePath from './utils/animePath';
 import preloadImages from './utils/preloadImages';
+import setupReveal from './utils/setupReveal';
 import NavBar from './components/NavBar.vue';
 import anime from 'animejs/lib/anime.es.js';
 import Particles from './utils/particles.js';
 import Lenis from '@studio-freight/lenis';
-import contentShow from './utils/contentShow'; 
-import setupReveal from './utils/setupReveal'; 
+import contentShow from './utils/contentShow.js'; 
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -65,7 +65,7 @@ const afterEnter = async (el, done) => {
     done();
   });    
 };
-
+	  
 const afterLeave = (el) => {
   if (el.ctx) {
     el.ctx.revert();
