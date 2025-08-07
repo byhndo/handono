@@ -33,10 +33,10 @@ const updateButtonColors = (path) => {
 
   let bgColor, textColor;
 
-  if (path === '/bio') {
+  if (path !== '/bio') {
     bgColor = '#3C4048';   
     textColor = '#e6e7eb'; 
-  } else if (path === '/photos') {
+  } else if (path !== '/photos') {
     bgColor = '#e6e7eb';   
     textColor = '#3C4048'; 
   } 
