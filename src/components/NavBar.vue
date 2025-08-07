@@ -1,7 +1,11 @@
 <script setup>
 import { ref } from 'vue'
-const { goToBio, goToPhotos, btnNav1, btnNav2 } = defineProps()
-</script>
+defineProps({
+  goToBio: Function,
+  goToPhotos: Function,
+  btnNav1: Object,
+  btnNav2: Object
+});</script>
 
 <template>
 <div>
