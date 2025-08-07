@@ -64,15 +64,15 @@ const updateButtonColors = (path) => {
 const beforeEnter = async (el, done) => {
   await preloadImages(el);
   await nextTick();
+  ScrollTrigger.refresh();
   done(); 
-  requestAnimationFrame(() => ScrollTrigger.refresh());
 }
 
 const afterEnter = async (el, done) => {                              
   await nextTick();
   setupReveal(el);
+  ScrollTrigger.refresh();
   done();    
-  requestAnimationFrame(() => ScrollTrigger.refresh());
 };
 	  
 const afterLeave = (el) => {
