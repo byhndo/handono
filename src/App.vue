@@ -106,7 +106,7 @@ const goToPhotos = () => {
 
 onMounted(() => {
   if (route.path !== '/bio') {
-    await router.replace('/bio');
+    router.replace('/bio');
     bg.value = 'bio';
   }
 
