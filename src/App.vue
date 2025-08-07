@@ -109,17 +109,10 @@ onMounted(async () => {
 await router.isReady();
   if (route.path !== '/bio') {
  await router.replace('/bio');
-    bg.value = 'bio';
   } 
-	
+bg.value = 'bio';	
 await nextTick();
 	
-  animateLoader(() => {  	  
-    updateButtonColors(route.path);
-    triggerAnimation();
-    firstLoad.value = false;
-  });
-
   const lenis = new Lenis({
     duration: 2,
     easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -142,6 +135,12 @@ await nextTick();
   });
 
   gsap.ticker.lagSmoothing(0);
+
+animateLoader(() => {  	  
+    updateButtonColors(route.path);
+    triggerAnimation();
+    firstLoad.value = false;
+  });	  
 });
 
 watch(
