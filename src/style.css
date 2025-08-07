@@ -533,7 +533,7 @@ p.sub2 {
 }
 
 .item::after {
- background-image: url("../img/ink-transition-sprite.png");  
+ background-image: url("/ink-transition-sprite.png");  
  background-size: 100% 100%;
  content: "";
  height: 100%;
