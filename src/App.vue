@@ -28,39 +28,27 @@ const navBarRef = ref(null)
 const btnNav1 = ref(null);
 const btnNav2 = ref(null);
 
-const updateButtonColors = (path) => {
+ const updateButtonColors = (path) => {
   if (!btnNav1.value || !btnNav2.value) return;
 
-  let bgColor1, textColor1;
-  let bgColor2, textColor2;
+  let bgColor, textColor;
 
   if (path === '/bio') {
-    bgColor1 = '#e6e7eb'; 
-    textColor1 = '#3C4048';
-    bgColor2 = '#3C4048'; 
-    textColor2 = '#e6e7eb';
+    bgColor = '#3C4048';   
+    textColor = '#e6e7eb'; 
   } else if (path === '/photos') {
-    bgColor1 = '#3C4048';
-    textColor1 = '#e6e7eb';
-    bgColor2 = '#e6e7eb';
-    textColor2 = '#3C4048';
-  }
+    bgColor = '#e6e7eb';   
+    textColor = '#3C4048'; 
+  } 
 
-  gsap.to(btnNav1.value, {
-    backgroundColor: bgColor1,
-    color: textColor1,
-    duration: 0.8,
+  gsap.to([btnNav1.value, btnNav2.value], {
+    backgroundColor: bgColor,
+    color: textColor,
+    duration: .8,
     delay: 1.03
   });
+}; 
 
-  gsap.to(btnNav2.value, {
-    backgroundColor: bgColor2,
-    color: textColor2,
-    duration: 0.8,
-    delay: 1.03
-  });
-};
-	  
 const beforeEnter = async (el, done) => {
   await nextTick();
   await preloadImages(el);
@@ -152,12 +140,6 @@ watch(
       bg.value = 'bio';
     } else if (newPath === '/photos') {
       bg.value = 'photos';
-    }
-
-    if (btnNav1.value && btnNav2.value) {
-      updateButtonColors(newPath);
-    } else {
-      console.warn('btnNav1 atau btnNav2 belum tersedia saat route berubah:', btnNav1.value, btnNav2.value);
     }
 	  
     nextTick(() => {
