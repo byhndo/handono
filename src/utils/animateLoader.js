@@ -38,15 +38,13 @@ export default async function animateLoader() {
 
   await new Promise((resolve) => setTimeout(resolve, time));
 
-  const DOM = {
-    intro: document.querySelector(".preloader-wrap")
-  };
-  if (!DOM.intro) return;
-
+  let percentBar = document.getElementById("precent");
+  let loadingBar = document.getElementById("loader");
+  
+  const DOM = {};
+  DOM.intro = document.querySelector(".preloader-wrap")  
   DOM.shape = DOM.intro.querySelector("svg.shape");
   DOM.path = DOM.intro.querySelector("path.goey");
-
-  const loadingBar = document.getElementById("loader");
 
   let tl = gsap.timeline({
     paused: true,
@@ -62,35 +60,35 @@ export default async function animateLoader() {
     delay: 1,
     ease: "none",
     onComplete: () => {
-      if (percentEl) percentEl.style.display = "none";
+      percentBar.style.display = "none";
       tl.to("#loader", {
         autoAlpha: 0,
         duration: 1,
         ease: "quart.out",
         onComplete: () => {
-          if (loadingBar) loadingBar.style.display = "none";
+          loadingBar.style.display = "none";
           tl.to(DOM.intro, {
             y: "-200vh",
             delay: 0.1,
             duration: 2,
             ease: "quad.inOut"
-          });
-          if (DOM.path) {
+          });          
             gsap.to(DOM.path, {
               duration: 1.2,
               ease: "linear",
               attr: { d: DOM.path.getAttribute("pathdata:id") }
-            });
-          }
+            });      
         }
       });
     }
   });
 
   const btns = document.querySelectorAll(".wrapbtnloader");
-  btns.forEach((container, idx) => {
-    const bttn = container.querySelector("button.particles-button");
-    if (!bttn) return;
+  btns.forEach((container, pos) => {
+    const bttn = il.querySelector("button.particles-button");
+      if (!bttn) return;
+      let particlesOpts = arrOpts[pos];
+      const particles = new Particles(bttn, particlesOpts);
 
     const particles = new Particles(bttn, {
       direction: 'bottom',
@@ -129,7 +127,6 @@ export default async function animateLoader() {
 
     bttn.addEventListener("click", () => {
       particles.disintegrate();
-      window.scrollTo(0, 0);
       tl.play();
     });
   });
