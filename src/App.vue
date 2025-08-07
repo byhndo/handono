@@ -113,26 +113,27 @@ const afterEnter = async (el, done) => {
 });
 
     watch(
-      () => route.path,
-      (newPath) => {
-        if (firstLoad.value) return;
+  () => route.path,
+  async (newPath) => {
+    if (firstLoad.value) return;
 
-        if (newPath === '/bio') {
-          bg.value = 'bio';
-        } else if (newPath === '/photos') {
-          bg.value = 'photos';
-        }
+    if (newPath === '/bio') {
+      bg.value = 'bio';
+    } else if (newPath === '/photos') {
+      bg.value = 'photos';
+    }
 
-	nextTick(() => {
-	updateButtonColors(newPath);
-        requestAnimationFrame(() => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+    await nextTick(); 
 
-        triggerAnimation();
-        });
-       }
-    );
+    updateButtonColors(newPath);
+
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    triggerAnimation(); 
+  }
+);
 </script>
 
 <template>
