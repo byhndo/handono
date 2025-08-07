@@ -69,19 +69,20 @@ const beforeEnter = async (el, done) => {
 
 
 const afterEnter = async (el, done) => {
-  await router.isReady();
   await nextTick();
 
   requestAnimationFrame(() => {
     ScrollTrigger.refresh();
 
-        if (!firstLoad.value) {
+    
+    if (!firstLoad.value) {
       setupReveal(el);
     }
 
     done();
   });
 };
+
 
 	
  
