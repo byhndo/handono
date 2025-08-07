@@ -93,8 +93,9 @@ const afterEnter = async (el, done) => {
     animePath(bg.value);      
     };
 
-    onMounted(async () => {
-await router.isReady();
+onMounted(async () => {
+  await router.isReady();
+
   if (route.path !== '/bio') {
     await router.replace('/bio');
     bg.value = 'bio';
@@ -112,38 +113,33 @@ await router.isReady();
     document.querySelector('.preloader-wrap')?.classList.add('hide');
   });
 
-document.documentElement.style.overflow = 'auto';
-    document.body.style.overflow = 'auto';
-    document.documentElement.style.height = 'auto';
-    document.body.style.height = 'auto';
-		
-const lenis = new Lenis({
- duration: 2,
- easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
- orientation: "vertical",
- direction: "vertical",
- gestureDirection: "vertical",
- smooth: 2,
- smoothWheel: 2,
- touchMultiplier: 2,
- wheelMultiplier: 2, 
- touchInertiaMultiplier: 35,
- syncTouch: true,
- autoResize: true
-});
+  document.documentElement.style.overflow = 'auto';
+  document.body.style.overflow = 'auto';
+  document.documentElement.style.height = 'auto';
+  document.body.style.height = 'auto';
 
-lenis.on('scroll', (e) => {
-  console.log(e);
-})
+  const lenis = new Lenis({
+    duration: 2,
+    easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    orientation: 'vertical',
+    direction: 'vertical',
+    gestureDirection: 'vertical',
+    smooth: true,
+    smoothWheel: true,
+    touchMultiplier: 2,
+    wheelMultiplier: 2,
+    touchInertiaMultiplier: 35,
+    syncTouch: true,
+    autoResize: true
+  });
 
-lenis.on('scroll', ScrollTrigger.update)
+  lenis.on('scroll', ScrollTrigger.update);
 
-gsap.ticker.add((time)=>{
-  lenis.raf(time * 1000)
-})
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
 
-gsap.ticker.lagSmoothing(0);
-	    
+  gsap.ticker.lagSmoothing(0);
 });
 
     watch(
