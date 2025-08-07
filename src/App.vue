@@ -134,23 +134,19 @@ animateLoader(() => {
 
 watch(
   () => route.path,
- (newPath) => {
+async (newPath) => {
     if (firstLoad.value) return;
 
-    if (newPath === '/bio') {
-      bg.value = 'bio';
-    } else if (newPath === '/photos') {
-      bg.value = 'photos';
-    }
-	  
-    nextTick(() => {
-	updateButtonColors(newPath);
-        requestAnimationFrame(() => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+    bg.value = newPath === '/bio' ? 'bio' : 'photos';
 
-        triggerAnimation();
-        });
+    await nextTick();
+	  
+    updateButtonColors(newPath);
+    triggerAnimation();
+	
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });        
 });  
 </script>
 
