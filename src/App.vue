@@ -74,22 +74,24 @@ const afterLeave = (el) => {
 };
 
 const goToBio = () => {
-  if (route.path !== '/bio') {
-    bg.value = 'bio';
-    router.push('/bio');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    triggerAnimation();
-  }
-};
+      if (route.path === '/bio') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+      } else {
+        bg.value = 'bio';
+        router.push('/bio');
+      }
+    };
 
-const goToPhotos = () => {
-  if (route.path !== '/photos') {
-    bg.value = 'photos';
-    router.push('/photos');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    triggerAnimation();
-  }
-};
+    const goToPhotos = () => {
+      if (route.path === '/photos') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+     
+      } else {
+        bg.value = 'photos';
+        router.push('/photos');
+     }
+    };
 
 const triggerAnimation = () => {
   animePath(bg.value);      
@@ -142,7 +144,7 @@ watch(
       bg.value = 'photos';
     }
 	  
-    animateLoader(() => {
+    nextTick(() => {
 	updateButtonColors(newPath);
         requestAnimationFrame(() => {
           window.scrollTo({ top: 0, behavior: 'smooth' });
