@@ -51,7 +51,7 @@ export default async function animateLoader(onComplete) {
   DOM.shape = DOM.intro.querySelector("svg.shape");
   DOM.path = DOM.intro.querySelector("path.goey");
 
-  let tl = gsap.timeline({
+const tl = gsap.timeline({
     paused: true,
     onComplete: () => {     
       contentShow(); 
