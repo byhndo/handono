@@ -84,7 +84,7 @@ const goToBio = async () => {
   requestAnimationFrame(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
-updateButtonColors(path);
+
   triggerAnimation();
 };
 
@@ -99,7 +99,7 @@ const goToPhotos = async () => {
   requestAnimationFrame(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
-updateButtonColors(path);
+
   triggerAnimation();
 };
 
@@ -152,8 +152,6 @@ watch(
     if (firstLoad.value) return;
 
     await nextTick();
-
-    updateButtonColors(newPath);
 
     requestAnimationFrame(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
