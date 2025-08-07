@@ -141,8 +141,7 @@ await nextTick();
 animateLoader(() => {  	  
     updateButtonColors(route.path);
     firstLoad.value = false;
-	await nextTick();
-	triggerAnimation();
+    triggerAnimation();
   });		
 });
 
@@ -150,11 +149,8 @@ watch(
   () => route.path,
   async (newPath) => {
     bg.value = newPath === '/bio' ? 'bio' : 'photos';
-
     if (firstLoad.value) return;
-
     await nextTick();
-
     requestAnimationFrame(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
