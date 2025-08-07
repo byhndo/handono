@@ -109,7 +109,7 @@ onMounted(async () => {
   if (route.path !== '/bio') {
     await router.replace('/bio');
     bg.value = 'bio';
-  }} else {
+  } else {
     bg.value = route.path === '/photos' ? 'photos' : 'bio';
   }
 	
