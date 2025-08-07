@@ -1,6 +1,6 @@
 <script setup>
-import './style.css';
 import './assets/normalize.css';
+import './style.css';
 import './assets/particles.css';
 	
 import { ref, watch, onMounted, nextTick } from 'vue';
