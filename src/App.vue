@@ -62,6 +62,7 @@ const updateButtonColors = (path) => {
 };
 	  
 const beforeEnter = async (el, done) => {
+  await router.isReady();
   await preloadImages(el);
   await nextTick();
   ScrollTrigger.refresh();
@@ -69,6 +70,7 @@ const beforeEnter = async (el, done) => {
 }
 
 const afterEnter = async (el, done) => {                              
+  await router.isReady();
   await nextTick();
   setupReveal(el);
   ScrollTrigger.refresh();
