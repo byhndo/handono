@@ -2,7 +2,7 @@ import gsap from 'gsap';
 import SplitText from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Particles from './particles.js'; 
-import contentShow from './contentShow'; 
+import contentShow from './contentShow.js'; 
 
 document.documentElement.style.overflow = 'hidden';
 document.documentElement.style.height = '100%';
