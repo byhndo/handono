@@ -4,6 +4,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Particles from './particles.js'; 
 import contentShow from './contentShow.js'; 
 
+document.documentElement.style.overflow = 'hidden';
+document.documentElement.style.height = '100%';
+document.body.style.overflow = 'hidden';
+document.body.style.height = '100%';
+
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 function animateValue(element, start, end, duration) {
@@ -51,6 +56,10 @@ export default async function animateLoader(onComplete) {
     onComplete: () => {     
       contentShow(); 
       ScrollTrigger.refresh();
+      document.documentElement.style.overflow = 'auto';
+      document.documentElement.style.height = 'auto';
+      document.body.style.overflow = 'auto';
+      document.body.style.height = 'auto';
     }
   });
 
