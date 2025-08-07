@@ -95,11 +95,6 @@ const afterLeave = (el) => {
     };
 
 onMounted(async () => {
-	document.documentElement.style.overflow = 'auto';
-      document.documentElement.style.height = 'auto';
-      document.body.style.overflow = 'auto';
-      document.body.style.height = 'auto';
-
   await router.isReady();
 
   if (route.path !== '/bio') {
