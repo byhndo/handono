@@ -53,10 +53,7 @@ export default async function animateLoader(done) {
 
 const tl = gsap.timeline({
     paused: true,
-    onComplete: () => { 
-      done;
-      ScrollTrigger.refresh();
-    }
+    onComplete: done
   });
 
   tl.to(".percentage", {
