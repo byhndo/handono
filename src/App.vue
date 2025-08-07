@@ -113,6 +113,10 @@ onMounted(async () => {
     document.querySelector('.preloader-wrap')?.classList.add('hide');
   });
 
+  window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
   document.documentElement.style.overflow = 'auto';
   document.body.style.overflow = 'auto';
   document.documentElement.style.height = 'auto';
