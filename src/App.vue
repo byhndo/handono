@@ -72,7 +72,7 @@ const afterEnter = async (el, done) => {
  await router.isReady();
  await nextTick();
 
-  animateLoader(() => {
+  requestAnimationFrame(() => {
     ScrollTrigger.refresh();
 
     if (!firstLoad.value) {
@@ -155,7 +155,7 @@ await router.isReady();
 
   gsap.ticker.lagSmoothing(0);
 
-animateLoader(() => {  	  
+requestAnimationFrame(() => {  	  
     updateButtonColors(route.path);
     triggerAnimation();
     firstLoad.value = false;
