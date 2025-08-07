@@ -141,6 +141,7 @@ await nextTick();
 animateLoader(() => {  	  
     updateButtonColors(route.path);
     firstLoad.value = false;
+	await nextTick();
 	triggerAnimation();
   });		
 });
