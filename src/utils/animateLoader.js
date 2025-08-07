@@ -129,6 +129,7 @@ export default async function animateLoader() {
 
     bttn.addEventListener("click", () => {
       particles.disintegrate();
+      window.scrollTo(0, 0);
       tl.play();
     });
   });
