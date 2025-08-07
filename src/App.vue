@@ -199,7 +199,7 @@ watch(
   ref="navBarRef"
 />
 
-<main>
+<main ref="mainRef">
 <div class="header">
 <div class="indicator">
 <div class="indicator-dot"></div>
