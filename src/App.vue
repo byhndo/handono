@@ -27,7 +27,6 @@ const firstLoad = ref(true);
 const navBarRef = ref(null)
 const btnNav1 = ref(null);
 const btnNav2 = ref(null);
-const mainRef = ref(null);
 
  const updateButtonColors = (path) => {
   if (!btnNav1.value || !btnNav2.value) return;
@@ -70,7 +69,7 @@ const beforeEnter = async (el, done) => {
 
 	const afterEnter = async (el, done) => {
   await nextTick();
-  requestAnimationFrame(() => {
+  animateLoader(() => {
     ScrollTrigger.refresh();
     if (!firstLoad.value) {
       setupReveal(el);
@@ -154,15 +153,7 @@ await router.isReady();
 animateLoader(() => {  	  
     updateButtonColors(route.path);
     triggerAnimation();
-    firstLoad.value = false;
-
-if (mainRef.value) {
-      console.log('🟢 setupReveal after preloader');
-      setupReveal(mainRef.value);
-    } else {
-      console.warn('❌ mainRef.value is null');
-	  }
-	
+    firstLoad.value = false;	
   });	  
 });
 
@@ -199,7 +190,7 @@ watch(
   ref="navBarRef"
 />
 
-<main ref="mainRef">
+<main>
 <div class="header">
 <div class="indicator">
 <div class="indicator-dot"></div>
