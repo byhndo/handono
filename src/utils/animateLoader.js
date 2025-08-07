@@ -26,7 +26,7 @@ function animateValue(element, start, end, duration) {
   }, stepTime);
 }
 
-export default async function animateLoader(done) {
+export default async function animateLoader() {
   const perfData = window.performance.timing;
   const estimatedTime = Math.abs(perfData.loadEventEnd - perfData.navigationStart);
   const time = Math.max(Math.floor((estimatedTime / 1000) % 60) * 100, 1200); 
@@ -54,7 +54,7 @@ export default async function animateLoader(done) {
 const tl = gsap.timeline({
   paused: true,
   onComplete: () => {
-    done();
+    contentShow();
     ScrollTrigger.refresh();
   }
 });
