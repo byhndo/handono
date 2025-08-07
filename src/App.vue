@@ -72,8 +72,8 @@ const afterEnter = async (el, done) => {
   await nextTick();
 
   animateLoader(() => {  
+	ScrollTrigger.refresh();
     setupReveal(el);
-    ScrollTrigger.refresh();
     done();
   });
 };
