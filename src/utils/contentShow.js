@@ -228,4 +228,4 @@ gsap.to('.header', {
     }
 });
 		 
-} /*contentshow*/
+}
