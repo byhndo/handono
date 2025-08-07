@@ -101,17 +101,15 @@ const goToPhotos = () => {
   }
 };
 
-    const triggerAnimation = () => {
-    animePath(bg.value);      
-    };
+const triggerAnimation = () => {
+  animePath(bg.value);      
+};
 
 onMounted(async () => {
   if (route.path !== '/bio') {
     await router.replace('/bio');
     bg.value = 'bio';
-  } else {
-    bg.value = route.path === '/photos' ? 'photos' : 'bio';
-  }
+  } 
 	
   await nextTick();
 	
