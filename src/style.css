@@ -10,7 +10,7 @@
  --bgloaderscreen: #C7C8CC;
  --textloadercolor: #3C4048;
  --sizebody: 11.5px;
- --sizetitle:17vw;
+ --sizetitle:clamp(2rem, 5vw, 3.5rem);
  --sizenav:9.5px;
  --font1: 'Anton', sans-serif;	
  --font2: 'Inter', sans-serif;
