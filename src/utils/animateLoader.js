@@ -83,6 +83,14 @@ export default async function animateLoader() {
     }
   });
 
+      (function show() {
+    const arrOpts = [{      
+      direction: 'bottom',
+      duration: 1000,
+      easing: 'easeInExpo'
+    }];
+
+
   const btns = document.querySelectorAll(".wrapbtnloader");
   btns.forEach((container, pos) => {
     const bttn = il.querySelector("button.particles-button");
@@ -125,9 +133,13 @@ export default async function animateLoader() {
       }
     });
 
-    bttn.addEventListener("click", () => {
-      particles.disintegrate();
-      tl.play();
+    gsap.to(bttn, {
+        onComplete: () => {
+          bttn.addEventListener("click", function () {
+            particles.disintegrate();
+            tl.play();
+          });
+        }
+      });
     });
-  });
-}
+  })();
