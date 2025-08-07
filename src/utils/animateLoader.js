@@ -53,10 +53,10 @@ export default async function animateLoader(onComplete) {
 
 const tl = gsap.timeline({
     paused: true,
-    onComplete: () => {     
+   /* onComplete: () => {     
       contentShow(); 
       ScrollTrigger.refresh();
-      }
+      } */
   });
 
   tl.to(".percentage", {
@@ -76,7 +76,14 @@ const tl = gsap.timeline({
             y: "-200vh",
             delay: 0.1,
             duration: 2,
-            ease: "quad.inOut"
+            ease: "quad.inOut",
+      onComplete: () => {
+    requestAnimationFrame(() => {
+      contentShow();
+      ScrollTrigger.refresh();
+      if (typeof onComplete === 'function') onComplete();
+    });
+    }
           });          
             gsap.to(DOM.path, {
               duration: 1.2,
