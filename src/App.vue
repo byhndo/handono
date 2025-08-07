@@ -27,6 +27,7 @@ const firstLoad = ref(true);
 const navBarRef = ref(null)
 const btnNav1 = ref(null);
 const btnNav2 = ref(null);
+const mainRef = ref(null);
 
  const updateButtonColors = (path) => {
   if (!btnNav1.value || !btnNav2.value) return;
@@ -56,7 +57,7 @@ const beforeEnter = async (el, done) => {
   done(); 
 }
 
-const afterEnter = async (el, done) => {                              
+/*const afterEnter = async (el, done) => {                              
   await router.isReady();
   await nextTick();
   requestAnimationFrame(() => {
@@ -64,7 +65,25 @@ const afterEnter = async (el, done) => {
     setupReveal(el);
     done();
   });    
-}; 
+}; */
+
+
+const afterEnter = async (el, done) => {
+  await router.isReady();
+  await nextTick();
+
+  requestAnimationFrame(() => {
+    ScrollTrigger.refresh();
+
+        if (!firstLoad.value) {
+      setupReveal(el);
+    }
+
+    done();
+  });
+};
+
+	
  
 const afterLeave = (el) => {
   if (el.ctx) {
@@ -141,6 +160,8 @@ animateLoader(() => {
     updateButtonColors(route.path);
     triggerAnimation();
     firstLoad.value = false;
+
+	setupReveal(mainRef.value); 
   });	  
 });
 
