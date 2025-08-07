@@ -5,7 +5,6 @@ import './assets/particles.css';
 	
 import { ref, watch, onMounted, nextTick } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import Lenis from '@studio-freight/lenis';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/all';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -16,6 +15,7 @@ import setupReveal from './utils/setupReveal';
 import NavBar from './components/NavBar.vue';
 import anime from 'animejs/lib/anime.es.js';
 import Particles from './utils/particles.js';
+import Lenis from '@studio-freight/lenis';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -62,11 +62,11 @@ const afterEnter = async (el, done) => {
   requestAnimationFrame(() => ScrollTrigger.refresh());
 };
 	  
-    const afterLeave = (el) => {
-      if (el.ctx) {
-        el.ctx.revert();
-        delete el.ctx;	      
-      }
+const afterLeave = (el) => {
+  if (el.ctx) {
+    el.ctx.revert();
+    delete el.ctx;	      
+  }
 };
 
    const goToBio = () => {
@@ -112,15 +112,6 @@ onMounted(async () => {
   document.getElementById('btnload')?.addEventListener('click', () => {
     document.querySelector('.preloader-wrap')?.classList.add('hide');
   });
-
-  window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-
-  document.documentElement.style.overflow = 'auto';
-  document.body.style.overflow = 'auto';
-  document.documentElement.style.height = 'auto';
-  document.body.style.height = 'auto';
 
   const lenis = new Lenis({
     duration: 2,
