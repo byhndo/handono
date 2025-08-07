@@ -11,12 +11,12 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import animateLoader from './utils/animateLoader';
 import animePath from './utils/animePath';
 import preloadImages from './utils/preloadImages';
-import setupReveal from './utils/setupReveal';
 import NavBar from './components/NavBar.vue';
 import anime from 'animejs/lib/anime.es.js';
 import Particles from './utils/particles.js';
 import Lenis from '@studio-freight/lenis';
 import contentShow from './utils/contentShow.js'; 
+//import setupReveal from './utils/setupReveal';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
