@@ -134,7 +134,7 @@ const tl = gsap.timeline({
       }
     });
 
-    gsap.to(bttn, {
+    tl.to(bttn, {
         onComplete: () => {
           bttn.addEventListener("click", function () {
             particles.disintegrate();
