@@ -139,9 +139,9 @@ await router.isReady();
 
 animateLoader(() => {  	  
     updateButtonColors(route.path);
-    triggerAnimation();
     firstLoad.value = false;
-  });	  
+  });	
+	triggerAnimation();
 });
 
 watch(
