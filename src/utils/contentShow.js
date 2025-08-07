@@ -6,12 +6,6 @@ gsap.registerPlugin(SplitText, ScrollTrigger);
 
 
 export default function contentShow() {
-
-document.documentElement.style.overflow = 'auto';
-document.body.style.overflow = 'auto';
-document.documentElement.style.height = 'auto';
-document.body.style.height = 'auto';
-
 				
 const title = document.querySelector("h1");
 const feBlur = document.querySelector(`#noisetitle feGaussianBlur`);
