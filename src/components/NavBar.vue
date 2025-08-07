@@ -1,11 +1,18 @@
 <script setup>
-import { ref } from 'vue'
-defineProps({
-  goToBio: Function,
-  goToPhotos: Function,
-  btnNav1: Object,
-  btnNav2: Object
-});</script>
+import { onMounted } from 'vue';
+
+const props = defineProps({
+  goToBio: Function,
+  goToPhotos: Function,
+  btnNav1: Object,
+  btnNav2: Object
+});
+
+onMounted(() => {
+  props.btnNav1.value = document.querySelector('.btn-about');
+  props.btnNav2.value = document.querySelector('.btn-photos');
+});
+</script>
 
 <template>
 <div>
