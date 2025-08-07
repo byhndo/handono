@@ -6,7 +6,6 @@ import Particles from './particles.js';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-
 function animateValue(element, start, end, duration) {
   const range = end - start;
   let current = start;
