@@ -73,18 +73,18 @@ const afterLeave = (el) => {
   }
 };
 
-const goToBio = () => {
+const goToBio = async() => {
   if (route.path !== '/bio') {
     bg.value = 'bio';
-    router.push('/bio');
+    await router.push('/bio');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 };
 
-const goToPhotos = () => {
+const goToPhotos = async() => {
   if (route.path !== '/photos') {
     bg.value = 'photos';
-    router.push('/photos');
+    await router.push('/photos');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 };    
