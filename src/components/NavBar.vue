@@ -2,15 +2,15 @@
 import { onMounted } from 'vue';
 
 const props = defineProps({
-  goToBio: Function,
-  goToPhotos: Function,
-  btnNav1: Object,
-  btnNav2: Object
+  goToBio: Function,
+  goToPhotos: Function,
+  btnNav1: Object,
+  btnNav2: Object
 });
 
 onMounted(() => {
-  props.btnNav1.value = document.querySelector('.btn-about');
-  props.btnNav2.value = document.querySelector('.btn-photos');
+  props.btnNav1.value = document.querySelector('.btn-nav-1');
+  props.btnNav2.value = document.querySelector('.btn-nav-2');
 });
 </script>
 
