@@ -110,7 +110,7 @@ onMounted(() => {
     bg.value = 'bio';
   }
 
-  nextTick(() => {  	  
+  animateLoader(() => {  	  
     updateButtonColors(route.path);
     triggerAnimation();
     firstLoad.value = false;
