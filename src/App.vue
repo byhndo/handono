@@ -66,7 +66,6 @@ const afterEnter = async (el) => {
   requestAnimationFrame(() => {
     setupReveal(el);	
     ScrollTrigger.refresh();
-	//triggerAnimation();
   });
 };
 
@@ -138,10 +137,9 @@ onMounted(() => {
  });	  
 });
 
-watch(() => route.path, async (newPath) => {
-  
+watch(() => route.path, async (newPath) => {  
   bg.value = newPath === '/bio' ? 'bio' : 'photos';
-
+  if (firstLoad.value) return;
   await nextTick(); 
   updateButtonColors(newPath);
   
