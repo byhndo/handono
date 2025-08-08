@@ -140,10 +140,3 @@ const tl = gsap.timeline({
     });
   })();
 }
-
-
-
-document.documentElement.style.overflow = 'auto';
-document.documentElement.style.height = 'auto';
-document.body.style.overflow = 'auto';
-document.body.style.height = 'auto';
