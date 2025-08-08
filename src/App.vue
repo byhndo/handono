@@ -26,6 +26,27 @@ const firstLoad = ref(true);
 const btnNav1 = ref(null);
 const btnNav2 = ref(null);
 
+const updateButtonColors = (path) => {
+  if (!btnNav1.value || !btnNav2.value) return;
+
+  let bgColor, textColor;
+
+  if (path === '/bio') {
+    bgColor = '#3C4048';   
+    textColor = '#e6e7eb'; 
+  } else if (path === '/photos') {
+    bgColor = '#e6e7eb';   
+    textColor = '#3C4048'; 
+} 
+
+  gsap.to([btnNav1.value, btnNav2.value], {
+    backgroundColor: bgColor,
+    color: textColor,
+    duration: .8,
+    delay: 1.03
+  });
+};
+
 const beforeEnter = async (el) => {
   await nextTick();
   await preloadImages(el);
