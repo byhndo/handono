@@ -2,7 +2,6 @@ import gsap from 'gsap';
 import SplitText from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Particles from './particles.js'; 
-import setupReveal from './setupReveal.js';
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 
@@ -228,7 +227,5 @@ gsap.to('.indicator', {
 }
 }, "+=2");
                     
-
-setupReveal(el);
 			 
 }
