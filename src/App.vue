@@ -70,6 +70,10 @@ const afterLeave = (el) => {
   }
 };
 
+const triggerAnimation = () => {
+  animePath(bg.value);      
+};
+
 const goToBio = async () => {
   if (route.path !== '/bio') {
     bg.value = 'bio';
@@ -82,9 +86,6 @@ const goToBio = async () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  const triggerAnimation = () => {
-    animePath(bg.value);      
-    };
 };
 
 const goToPhotos = async () => {
@@ -99,13 +100,6 @@ const goToPhotos = async () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  const triggerAnimation = () => {
-    animePath(bg.value);      
-    };
-};
-
-const triggerAnimation = () => {
-  animePath(bg.value);      
 };
 
 onMounted(async () => {
