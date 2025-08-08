@@ -111,7 +111,7 @@ const triggerAnimation = () => {
 onMounted(() => {	
 router.isReady();
   if (firstLoad.value && route.path !== '/bio') {
-    await router.push('/bio');
+ router.push('/bio');
     bg.value = 'bio';
 }
 	
