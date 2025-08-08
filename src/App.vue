@@ -137,15 +137,13 @@ onMounted(() => {
  });	  
 });
 
-watch(() => route.path, async (newPath) => {  
+watch(() => route.path, (newPath) => {  
   bg.value = newPath === '/bio' ? 'bio' : 'photos';
-  if (firstLoad.value) return;
-  await nextTick(); 
-  updateButtonColors(newPath);
-  
-  requestAnimationFrame(() => {
+    
+  nexTick(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    triggerAnimation(); 
+    updateButtonColors(newPath);
+	triggerAnimation(); 
   });
 });
 </script>
