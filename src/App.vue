@@ -106,7 +106,7 @@ onMounted(async() => {
 
   const lenis = new Lenis({
     duration: 2.3,
-    easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    easing: t => (1 - Math.cos(t * Math.PI)) / 2,
     direction: 'vertical',
     gestureDirection: 'vertical',
     smooth: true,
