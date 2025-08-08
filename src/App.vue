@@ -1,7 +1,7 @@
 <script setup>
 import './assets/normalize.css';
-import './style.css';
 import './assets/particles.css';
+import './style.css';
 	
 import { ref, watch, onMounted, nextTick } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
