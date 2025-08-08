@@ -8,7 +8,7 @@ import { useRoute, useRouter } from 'vue-router';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/all';
-//import anime from 'animejs/lib/anime.es.js';
+import anime from 'animejs/lib/anime.es.js';
 import Lenis from '@studio-freight/lenis';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -18,7 +18,6 @@ import animateLoader from './utils/animateLoader';
 import afterPreload from './utils/afterPreload';
 import setupReveal from './utils/setupReveal';
 import animePath from './utils/animePath';
-import anime from './utils/anime-wrapper.js';
 import Particles from './utils/particles';
 
 const route = useRoute();
