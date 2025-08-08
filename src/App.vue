@@ -141,14 +141,15 @@ watch(
 
     if (firstLoad.value) return;
 
-    await nextTick();
-    updateButtonColors(newPath);
-	triggerAnimation();
-    
+    await nextTick(); 
+
     requestAnimationFrame(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      
-	});
+      animePath(bg.value); 
+    });
+
+    updateButtonColors(newPath);
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 );
 </script>
