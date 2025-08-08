@@ -1,5 +1,5 @@
 import gsap from 'gsap';
-import SplitText from 'gsap/SplitText';
+import SplitText from 'gsap/all';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Particles from './particles.js'; 
 gsap.registerPlugin(SplitText, ScrollTrigger);
