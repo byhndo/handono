@@ -105,7 +105,7 @@ onMounted(async() => {
   }
 
   const lenis = new Lenis({
-    duration: 2.5,
+    duration: 2,
     easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     orientation: 'vertical',
     direction: 'vertical',
@@ -113,9 +113,9 @@ onMounted(async() => {
     smooth: true,
 	smoothTouch: true,
     smoothWheel: true,
-    touchMultiplier: 0.5,
+    touchMultiplier: 0.7,
     wheelMultiplier: 1,
-    touchInertiaMultiplier: 35,
+    touchInertiaMultiplier: 40,
     syncTouch: true,
     autoResize: true
   });
