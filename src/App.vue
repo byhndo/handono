@@ -144,7 +144,8 @@ animateLoader(() => {
     updateButtonColors(route.path);
     triggerAnimation();
     firstLoad.value = false;
-	afterPreload();	
+	const container = document.querySelector(".router-view"); // pastikan ini targetnya
+  setupReveal(container); 
   });	  
 });
 
