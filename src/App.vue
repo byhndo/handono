@@ -139,12 +139,10 @@ await router.isReady();
 
 	await nextTick();
 
-animateLoader(() => {  	  
+requestAnimationFrame(() => {  	  
     updateButtonColors(route.path);
     triggerAnimation();
     firstLoad.value = false;	
-	setupReveal();            
-  ScrollTrigger.refresh();  
   });	  
 });
 
