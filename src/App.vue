@@ -27,6 +27,7 @@ const firstLoad = ref(true);
 const navBarRef = ref(null)
 const btnNav1 = ref(null);
 const btnNav2 = ref(null);
+const isReady = ref(false);
 
  const updateButtonColors = (path) => {
   if (!btnNav1.value || !btnNav2.value) return;
@@ -143,7 +144,8 @@ await nextTick();
 animateLoader(() => {  	  
     updateButtonColors(route.path);
     triggerAnimation();
-   // firstLoad.value = false; 
+    firstLoad.value = false; 
+	isReady.value = true;
   });	  
 });
 
