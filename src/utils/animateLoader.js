@@ -2,8 +2,7 @@ import gsap from 'gsap';
 import SplitText from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Particles from './particles.js'; 
-import contentShow from './contentShow.js'; 
-import setupReveal from './setupReveal.js'; 
+import afterPreload from './afterPreload.js'; 
 
 document.documentElement.style.overflow = 'hidden';
 document.documentElement.style.height = '100%';
@@ -54,9 +53,7 @@ export default async function animateLoader() {
 
 const tl = gsap.timeline({
     paused: true,
-    onComplete: () => {    
-    contentShow(); 
-    }
+    onComplete: afterPreload
   });
 
   tl.to(".percentage", {
