@@ -136,22 +136,20 @@ onMounted(async () => {
 
 watch(
   () => route.path,
-  async (newPath) => {
+   (newPath) => {
     bg.value = newPath === '/bio' ? 'bio' : 'photos';
 
     if (firstLoad.value) return;
 
-    await nextTick(); 
+    nextTick(() => {
+	updateButtonColors(newPath);
+        requestAnimationFrame(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
-    requestAnimationFrame(() => {
-      triggerAnimation();
-    });
-
-    updateButtonColors(newPath);
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-);
+        triggerAnimation();
+        });
+});
 </script>
 
 <template>
