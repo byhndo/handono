@@ -52,7 +52,6 @@ const triggerAnimation = () => {
 };
 
 const beforeEnter = async (el) => {
-  triggerAnimation();
   await nextTick();
   await preloadImages(el);
   
@@ -61,7 +60,6 @@ const beforeEnter = async (el) => {
 
 const afterEnter = async (el) => {
   await router.isReady();
-  triggerAnimation();
   await nextTick();
 
   requestAnimationFrame(() => {
@@ -144,13 +142,13 @@ watch(
     if (firstLoad.value) return;
 
     await nextTick();
-    updateButtonColors(newPath);    
+    updateButtonColors(newPath);
+	triggerAnimation();
     
     requestAnimationFrame(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       
 	});
-
   }
 );
 </script>
