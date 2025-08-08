@@ -136,17 +136,15 @@ onMounted(() => {
  });	  
 });
 
-watch(
-      () => route.path,
-      (newPath) => {
-        if (firstLoad.value) return;
-
-        if (newPath === '/bio') {
-          bg.value = 'bio';
-        } else if (newPath === '/photos') {
-          bg.value = 'photos';
-        }
-
+watch(() => route.path,(newPath) => {
+  if (newPath === '/bio') {
+    bg.value = 'bio';
+  } else if (newPath === '/photos') {
+    bg.value = 'photos';
+  }
+	
+  if (firstLoad.value) return;
+		  
     nextTick(() => {
 	updateButtonColors(newPath);
         requestAnimationFrame(() => {
