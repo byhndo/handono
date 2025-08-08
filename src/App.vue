@@ -82,7 +82,9 @@ const goToBio = async () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  triggerAnimation();
+  const triggerAnimation = () => {
+    animePath(bg.value);      
+    };
 };
 
 const goToPhotos = async () => {
@@ -97,7 +99,9 @@ const goToPhotos = async () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  triggerAnimation();
+  const triggerAnimation = () => {
+    animePath(bg.value);      
+    };
 };
 
 const triggerAnimation = () => {
