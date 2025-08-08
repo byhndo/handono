@@ -104,13 +104,14 @@ const triggerAnimation = () => {
   animePath(bg.value);      
 };
 
-onMounted(async() => {	
-await router.isReady();
+onMounted(async () => {
+  await router.isReady();
+
   if (firstLoad.value && route.path !== '/bio') {
- router.push('/bio');
+    await router.replace('/bio');
     bg.value = 'bio';
-}
-	
+  }
+
   const lenis = new Lenis({
     duration: 2,
     easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -133,14 +134,14 @@ await router.isReady();
   });
 
   gsap.ticker.lagSmoothing(0);
-	
-await nextTick();
-	
-animateLoader(() => {  	  
+
+  await nextTick();
+
+  animateLoader(() => {
     updateButtonColors(route.path);
     triggerAnimation();
-    firstLoad.value = false; 
-  });	  
+    firstLoad.value = false;
+  });
 });
 
 watch(
@@ -152,11 +153,16 @@ watch(
 
     await nextTick();
 
+    updateButtonColors(newPath);
+
     requestAnimationFrame(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
     triggerAnimation();
-});
+  }
+);
+
 </script>
 
 <template>
