@@ -74,7 +74,7 @@ const triggerAnimation = () => {
   animePath(bg.value);      
 };
 
-const goToBio = async () => {
+/*const goToBio = async () => {
   if (route.path !== '/bio') {
     bg.value = 'bio';
     await router.push('/bio');
@@ -100,6 +100,26 @@ const goToPhotos = async () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
+};*/
+
+const goToBio = () => {
+      if (route.path === '/bio') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+      } else {
+        bg.value = 'bio';
+        router.push('/bio');
+      }
+};
+
+const goToPhotos = () => {
+      if (route.path === '/photos') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+     
+      } else {
+        bg.value = 'photos';
+        router.push('/photos');
+     }
 };
 
 onMounted(async () => {
