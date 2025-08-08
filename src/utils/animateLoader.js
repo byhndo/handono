@@ -1,6 +1,4 @@
 import gsap from 'gsap';
-import SplitText from 'gsap/SplitText';
-//import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Particles from './particles.js'; 
 import afterPreload from './afterPreload.js'; 
 
@@ -9,9 +7,7 @@ document.documentElement.style.height = '100%';
 document.body.style.overflow = 'hidden';
 document.body.style.height = '100%';
 
-//gsap.registerPlugin(ScrollTrigger, SplitText);
-
-function animateValue(element, start, end, duration) {
+/*function animateValue(element, start, end, duration) {
   const range = end - start;
   let current = start;
   const increment = end > start ? 1 : -1;
@@ -139,4 +135,4 @@ const tl = gsap.timeline({
       });
     });
   })();
-}
+} */
