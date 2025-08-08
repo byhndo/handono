@@ -132,6 +132,9 @@ Saya tidak terlalu suka dengan kalimat&ndash;kalimat bijak orang lain, tapi seti
 
 <script setup>
 import { ref } from 'vue'
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import { SplitText } from 'gsap/all';
 
 const currentYear = ref(new Date().getFullYear())
 </script>
