@@ -58,10 +58,10 @@ const beforeEnter = async (el, done) => {
 
 const afterEnter = async (el, done) => {                              
   await router.isReady();
+	setupReveal(el);
   await nextTick();
   requestAnimationFrame(() => {
     ScrollTrigger.refresh();
-    setupReveal(el);
     done();
   });    
 }; 
