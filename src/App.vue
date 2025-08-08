@@ -59,7 +59,7 @@ const beforeEnter = async (el, done) => {
 const afterEnter = async (el, done) => {                              
   await router.isReady();
   await nextTick();
-  animateLoader(() => {
+  requestAnimationFrame(() => {
     ScrollTrigger.refresh();
     setupReveal(el);
     done();
@@ -143,7 +143,7 @@ animateLoader(() => {
     updateButtonColors(route.path);
     triggerAnimation();
     firstLoad.value = false;
-	contentShow(el);
+	contentShow();
   });	  
 });
 
