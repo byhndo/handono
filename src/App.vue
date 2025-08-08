@@ -139,13 +139,13 @@ await router.isReady();
   gsap.ticker.lagSmoothing(0);
 
 	await nextTick();
+	await setupReveal(el);
 
 animateLoader(() => {  	  
     updateButtonColors(route.path);
     triggerAnimation();
     firstLoad.value = false;
-	contentShow();
-	await setupReveal(el);
+	contentShow();	
   });	  
 });
 
