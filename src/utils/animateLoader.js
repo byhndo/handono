@@ -74,13 +74,13 @@ const tl = gsap.timeline({
         ease: "quart.out",
         onComplete: () => {
           loadingBar.style.display = "none";
-          gsap.to(DOM.intro, {
+          tl.to(DOM.intro, {
             y: "-200vh",
             delay: 0.1,
             duration: 2,
             ease: "quad.inOut"
           });          
-            gsap.to(DOM.path, {
+            tl.to(DOM.path, {
               duration: 1.2,
               ease: "linear",
               attr: { d: DOM.path.getAttribute("pathdata:id") }
