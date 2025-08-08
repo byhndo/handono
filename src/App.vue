@@ -140,7 +140,7 @@ await router.isReady();
 
 	await nextTick();
 
-animateLoader(() => {  	  
+await animateLoader(() => {  	  
     updateButtonColors(route.path);
     triggerAnimation();
     firstLoad.value = false;
