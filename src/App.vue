@@ -18,7 +18,6 @@ import animateLoader from './utils/animateLoader';
 import afterPreload from './utils/afterPreload';
 import setupReveal from './utils/setupReveal';
 import animePath from './utils/animePath';
-import anime from './utils/anime.js';
 import anime from './utils/anime-wrapper.js';
 import Particles from './utils/particles';
 
