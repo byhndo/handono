@@ -94,7 +94,7 @@ const goToPhotos = () => {
      }
 };
 
-/*onMounted(async () => {
+onMounted(async () => {
   await router.isReady();
 
   if (firstLoad.value && route.path !== '/bio') {
@@ -151,45 +151,7 @@ watch(
 
     triggerAnimation();
   }
-);*/
-
-
-onMounted(() => {	    
-      if (route.path !== '/bio') {
-        router.replace('/bio');
-        bg.value = 'bio';
-      }
-      animateLoader(() => {
-	updateButtonColors(route.path); 
-        triggerAnimation();
-        firstLoad.value = false;
-      });
-    });
-
-    watch(
-      () => route.path,
-      (newPath) => {
-        if (firstLoad.value) return;
-
-        if (newPath === '/bio') {
-          bg.value = 'bio';
-        } else if (newPath === '/photos') {
-          bg.value = 'photos';
-        }
-
-	nextTick(() => {
-	updateButtonColors(newPath);
-        requestAnimationFrame(() => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        triggerAnimation();
-        });
-       }
-    );
-
- 
-
+); 
 </script>
 
 <template>
