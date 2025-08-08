@@ -46,7 +46,7 @@ export default async function animateLoader() {
   DOM.intro = document.querySelector(".preloader-wrap")  
   DOM.shape = DOM.intro.querySelector("svg.shape");
   DOM.path = DOM.intro.querySelector("path.goey");
-
+*/
 const tl = gsap.timeline({
     paused: true,
     onComplete: afterPreload
@@ -135,4 +135,4 @@ const tl = gsap.timeline({
       });
     });
   })();
-} */
+} 
