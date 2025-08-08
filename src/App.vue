@@ -3,21 +3,22 @@ import './assets/normalize.css';
 import './style.css';
 import './assets/particles.css';
 	
-import gsap from 'gsap';
-import { SplitText } from 'gsap/all';
-import ScrollTrigger from 'gsap/ScrollTrigger';
 import { ref, watch, onMounted, nextTick } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import animateLoader from './utils/animateLoader';
-import animePath from './utils/animePath';
-import preloadImages from './utils/preloadImages';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import { SplitText } from 'gsap/all';
 import anime from 'animejs/lib/anime.es.js';
-import Particles from './utils/particles';
 import Lenis from '@studio-freight/lenis';
-import afterPreload from './utils/afterPreload'; 
-import setupReveal from './utils/setupReveal';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
+
+import preloadImages from './utils/preloadImages';
+import animateLoader from './utils/animateLoader';
+import afterPreload from './utils/afterPreload';
+import setupReveal from './utils/setupReveal';
+import animePath from './utils/animePath';
+import Particles from './utils/particles';
 
 const route = useRoute();
 const router = useRouter();
