@@ -28,26 +28,6 @@ const navBarRef = ref(null)
 const btnNav1 = ref(null);
 const btnNav2 = ref(null);
 
- const updateButtonColors = (path) => {
-  if (!btnNav1.value || !btnNav2.value) return;
-
-  let bgColor, textColor;
-
-  if (path === '/bio') {
-    bgColor = '#3C4048';   
-    textColor = '#e6e7eb'; 
-  } else if (path === '/photos') {
-    bgColor = '#e6e7eb';   
-    textColor = '#3C4048'; 
-  } 
-
-  gsap.to([btnNav1.value, btnNav2.value], {
-    backgroundColor: bgColor,
-    color: textColor,
-    duration: .8,
-    delay: 1.03
-  });
-}; 
 
 const beforeEnter = async (el, done) => {
   await nextTick();
@@ -172,13 +152,7 @@ watch(
   <path id="photosPath" fill="var(--dark)" d="M 0 100 V 100 Q 50 100 100 100 V 100 z" />
 </svg>
 	
-<NavBar
-  :goToBio="goToBio"
-  :goToPhotos="goToPhotos"
-  :btnNav1="btnNav1"
-  :btnNav2="btnNav2"
-  ref="navBarRef"
-/>
+<NavBar/>
 
 <main>
 <div class="header">
