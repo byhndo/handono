@@ -74,34 +74,6 @@ const triggerAnimation = () => {
   animePath(bg.value);      
 };
 
-/*const goToBio = async () => {
-  if (route.path !== '/bio') {
-    bg.value = 'bio';
-    await router.push('/bio');
-  } else {
-   bg.value = 'bio';
-  }
-
-  requestAnimationFrame(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-};
-
-const goToPhotos = async () => {
-  if (route.path !== '/photos') {
-    bg.value = 'photos';
-    await router.push('/photos');
-  } else {
-    bg.value = 'photos';
-  }
-
-  requestAnimationFrame(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-};*/
-
 const goToBio = () => {
       if (route.path === '/bio') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -122,7 +94,7 @@ const goToPhotos = () => {
      }
 };
 
-onMounted(async () => {
+/*onMounted(async () => {
   await router.isReady();
 
   if (firstLoad.value && route.path !== '/bio') {
@@ -179,7 +151,44 @@ watch(
 
     triggerAnimation();
   }
-);
+);*/
+
+
+onMounted(() => {	    
+      if (route.path !== '/bio') {
+        router.replace('/bio');
+        bg.value = 'bio';
+      }
+      nextTick(() => {
+	updateButtonColors(route.path); 
+        triggerAnimation();
+        firstLoad.value = false;
+      });
+    });
+
+    watch(
+      () => route.path,
+      (newPath) => {
+        if (firstLoad.value) return;
+
+        if (newPath === '/bio') {
+          bg.value = 'bio';
+        } else if (newPath === '/photos') {
+          bg.value = 'photos';
+        }
+
+	nextTick(() => {
+	updateButtonColors(newPath);
+        requestAnimationFrame(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        triggerAnimation();
+        });
+       }
+    );
+
+ 
 
 </script>
 
