@@ -140,11 +140,11 @@ await router.isReady();
 
 	await nextTick();
 
-afterPreload(() => {  	  
+animateLoader(() => {  	  
     updateButtonColors(route.path);
     triggerAnimation();
     firstLoad.value = false;
-	//afterPreload();	
+	afterPreload();	
   });	  
 });
 
