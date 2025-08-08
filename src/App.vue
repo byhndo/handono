@@ -57,9 +57,9 @@ const beforeEnter = async (el, done) => {
 }
 
 const afterEnter = async (el, done) => {                              
-  await router.isReady();
-	setupReveal(el);
+  await router.isReady();	
   await nextTick();
+	setupReveal(el);
   requestAnimationFrame(() => {
     ScrollTrigger.refresh();
     done();
