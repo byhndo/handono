@@ -137,17 +137,18 @@ onMounted(() => {
  });	  
 });
 
-watch(() => route.path,(newPath) => {	
-    bg.value = newPath === '/bio' ? 'bio' : 'photos';
-	if (firstLoad.value) return;  
-    nextTick(() => {
-	updateButtonColors(newPath);
-        requestAnimationFrame(() => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+watch(() => route.path, async (newPath) => {
+  if (firstLoad.value) return;
 
-        triggerAnimation();
-        });
+  bg.value = newPath === '/bio' ? 'bio' : 'photos';
+
+  await nextTick(); 
+  updateButtonColors(newPath);
+  
+  requestAnimationFrame(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    triggerAnimation(); 
+  });
 });
 </script>
 
