@@ -137,13 +137,8 @@ onMounted(() => {
 });
 
 watch(() => route.path,(newPath) => {
-  if (newPath === '/bio') {
-    bg.value = 'bio';
-  } else if (newPath === '/photos') {
-    bg.value = 'photos';
-  }
-	
-  if (firstLoad.value) return;
+	if (firstLoad.value) return;
+    bg.value = newPath === '/bio' ? 'bio' : 'photos';
 		  
     nextTick(() => {
 	updateButtonColors(newPath);
