@@ -80,7 +80,7 @@ const tl = gsap.timeline({
             duration: 2,
             ease: "quad.inOut"
           });          
-            tl.to(DOM.path, {
+           gsap.to(DOM.path, {
               duration: 1.2,
               ease: "linear",
               attr: { d: DOM.path.getAttribute("pathdata:id") }
