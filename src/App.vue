@@ -108,8 +108,8 @@ const triggerAnimation = () => {
   animePath(bg.value);      
 };
 
-onMounted(() => {	
-router.isReady();
+onMounted(async() => {	
+await router.isReady();
   if (firstLoad.value && route.path !== '/bio') {
  router.push('/bio');
     bg.value = 'bio';
@@ -137,11 +137,13 @@ router.isReady();
   });
 
   gsap.ticker.lagSmoothing(0);
-
+	
+await nextTick();
+	
 animateLoader(() => {  	  
     updateButtonColors(route.path);
     triggerAnimation();
-    firstLoad.value = false; 
+   // firstLoad.value = false; 
   });	  
 });
 
