@@ -18,7 +18,7 @@ import animateLoader from './utils/animateLoader';
 import afterPreload from './utils/afterPreload';
 import setupReveal from './utils/setupReveal';
 import animePath from './utils/animePath';
-import Particles from './utils/particles';
+import Particles from './utils/particles2';
 
 const route = useRoute();
 const router = useRouter();
