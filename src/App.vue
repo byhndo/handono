@@ -29,21 +29,21 @@ const btnNav1 = ref(null);
 const btnNav2 = ref(null);
 
 
-const beforeEnter = async (el, done) => {
+const beforeEnter = async (el) => {
   await nextTick();
   await preloadImages(el);
   ScrollTrigger.refresh();
-  done(); 
+  //done(); 
 }
 
-const afterEnter = async (el, done) => {
+const afterEnter = async (el) => {
   await router.isReady();
   await nextTick();
 
   requestAnimationFrame(() => {
     setupReveal(el);
     ScrollTrigger.refresh();
-    done();
+    //done();
   });
 };
 
