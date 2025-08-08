@@ -105,14 +105,14 @@ onMounted(async() => {
   }
 
   const lenis = new Lenis({
-    duration: 2,
+    duration: 2.3,
     easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     direction: 'vertical',
     gestureDirection: 'vertical',
     smooth: true,
 	smoothTouch: true,
     smoothWheel: true,
-    touchMultiplier: 0.6,
+    touchMultiplier: 0.5,
     wheelMultiplier: 1,
     touchInertiaMultiplier: 50,
     syncTouch: true,
