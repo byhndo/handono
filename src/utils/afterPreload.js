@@ -2,8 +2,8 @@ import contentShow from './contentShow.js';
 import setupReveal from './setupReveal.js';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-export default async function afterPreload() {
+export default function afterPreload() {
   contentShow();
-  await setupReveal(); 
+  setupReveal(); 
   ScrollTrigger.refresh();
 }
