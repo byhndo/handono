@@ -137,13 +137,17 @@ onMounted(() => {
  });	  
 });
 
-watch(() => route.path, (newPath) => {  
+watch(() => route.path, (newPath) => {
+  //if (firstLoad.value) return;
+
   bg.value = newPath === '/bio' ? 'bio' : 'photos';
-    
-  nexTick(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  nextTick(() => {
     updateButtonColors(newPath);
-	triggerAnimation(); 
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      animePath(bg.value); 
+    });
   });
 });
 </script>
