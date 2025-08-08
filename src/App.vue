@@ -24,7 +24,7 @@ const route = useRoute();
 const router = useRouter();
 const bg = ref('bio');
 const firstLoad = ref(true);
-const navBarRef = ref(null)
+//const navBarRef = ref(null)
 const btnNav1 = ref(null);
 const btnNav2 = ref(null);
 
