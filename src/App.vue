@@ -27,7 +27,6 @@ const firstLoad = ref(true);
 const navBarRef = ref(null)
 const btnNav1 = ref(null);
 const btnNav2 = ref(null);
-const isReady = ref(false);
 
  const updateButtonColors = (path) => {
   if (!btnNav1.value || !btnNav2.value) return;
