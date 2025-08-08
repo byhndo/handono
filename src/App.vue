@@ -114,7 +114,7 @@ onMounted(async() => {
     smoothWheel: true,
     touchMultiplier: 0.1,
     wheelMultiplier: 1,
-    touchInertiaMultiplier: 35,
+    touchInertiaMultiplier: 50,
     syncTouch: false,
     autoResize: true
   });
