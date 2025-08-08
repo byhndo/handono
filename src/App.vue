@@ -99,7 +99,7 @@ onMounted(() => {
  router.isReady();
 
   if (firstLoad.value && route.path !== '/bio') {
-    router.push('/bio');
+    router.replace('/bio');
     bg.value = 'bio';
   }
 
