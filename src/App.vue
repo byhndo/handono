@@ -52,19 +52,20 @@ const triggerAnimation = () => {
 };
 
 const beforeEnter = async (el) => {
+  triggerAnimation();
   await nextTick();
   await preloadImages(el);
-  triggerAnimation();
+  
   ScrollTrigger.refresh();
 }
 
 const afterEnter = async (el) => {
   await router.isReady();
+  triggerAnimation();
   await nextTick();
 
   requestAnimationFrame(() => {
-    setupReveal(el);
-	triggerAnimation();
+    setupReveal(el);	
     ScrollTrigger.refresh();
   });
 };
