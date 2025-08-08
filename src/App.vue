@@ -136,10 +136,9 @@ onMounted(() => {
  });	  
 });
 
-watch(() => route.path,(newPath) => {
-	if (firstLoad.value) return;
+watch(() => route.path,(newPath) => {	
     bg.value = newPath === '/bio' ? 'bio' : 'photos';
-		  
+	if (firstLoad.value) return;  
     nextTick(() => {
 	updateButtonColors(newPath);
         requestAnimationFrame(() => {
