@@ -137,4 +137,4 @@ const tl = gsap.timeline({
 })();
 } 
 
-animateLoader()
+await animateLoader()
