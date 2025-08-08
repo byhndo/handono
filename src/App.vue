@@ -104,29 +104,33 @@ onMounted(async() => {
     bg.value = 'bio';
   }
 
-  const lenis = new Lenis({
-    duration: 2.3,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    direction: 'vertical',
-    gestureDirection: 'vertical',
-    smooth: true,
-	smoothTouch: true,
-    smoothWheel: true,
-    touchMultiplier: 0.1,
-    wheelMultiplier: 1,
-    touchInertiaMultiplier: 50,
-    syncTouch: false,
-    autoResize: true
-  });
+const lenis = new Lenis({
+ duration: 2,
+ easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+ direction: "vertical",
+ gestureDirection: "vertical",
+ smooth: true,
+ smoothTouch: true,
+ smoothWheel: true,
+ touchMultiplier: 0.5,
+ wheelMultiplier: 1, 
+ touchInertiaMultiplier: 50,
+ syncTouch: false,
+ autoResize: true
+});
 
-  lenis.on('scroll', ScrollTrigger.update);
+lenis.on('scroll', (e) => {
+  console.log(e);
+})
 
-  gsap.ticker.add((time) => {
-    lenis.raf(time * 1000);
-  });
+lenis.on('scroll', ScrollTrigger.update)
 
-  gsap.ticker.lagSmoothing(0);
+gsap.ticker.add((time)=>{
+  lenis.raf(time * 1000)
+})
 
+gsap.ticker.lagSmoothing(0);  
+  
   await nextTick(); 
 
   animateLoader(() => {
