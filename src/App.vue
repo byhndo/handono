@@ -143,6 +143,8 @@ animateLoader(() => {
     updateButtonColors(route.path);
     triggerAnimation();
     firstLoad.value = false;	
+	setupReveal();            
+  ScrollTrigger.refresh();  
   });	  
 });
 
