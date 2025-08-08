@@ -152,7 +152,13 @@ watch(
   <path id="photosPath" fill="var(--dark)" d="M 0 100 V 100 Q 50 100 100 100 V 100 z" />
 </svg>
 	
-<NavBar/>
+<NavBar
+  :goToBio="goToBio"
+  :goToPhotos="goToPhotos"
+  :btnNav1="btnNav1"
+  :btnNav2="btnNav2"
+  ref="navBarRef"
+/>
 
 <main>
 <div class="header">
