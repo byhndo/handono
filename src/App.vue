@@ -59,7 +59,7 @@ const afterEnter = async (el) => {
 
   requestAnimationFrame(() => {
     setupReveal(el);
-	triggerAnimation();
+	//triggerAnimation();
     ScrollTrigger.refresh();
   });
 };
