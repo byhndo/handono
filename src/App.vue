@@ -116,7 +116,7 @@ onMounted(async() => {
     touchMultiplier: 0.7,
     wheelMultiplier: 1,
     touchInertiaMultiplier: 40,
-    syncTouch: true,
+    syncTouch: false,
     autoResize: true
   });
 
