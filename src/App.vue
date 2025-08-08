@@ -52,6 +52,7 @@ const btnNav2 = ref(null);
 const beforeEnter = async (el, done) => {
   await nextTick();
   await preloadImages(el);
+  ScrollTrigger.refresh();
   done(); 
 }
 
