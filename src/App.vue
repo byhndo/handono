@@ -59,8 +59,9 @@ const beforeEnter = async (el, done) => {
 const afterEnter = async (el, done) => {                              
   await router.isReady();	
   await nextTick();
-	setupReveal(el);
+	
   requestAnimationFrame(() => {
+	setupReveal(el);
     ScrollTrigger.refresh();
     done();
   });    
@@ -97,7 +98,7 @@ const goToPhotos = async () => {
   }
 
   requestAnimationFrame(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behvior: 'smooth' });
   });
 
   triggerAnimation();
