@@ -67,7 +67,7 @@ const afterEnter = async (el) => {
     setupReveal(el);                    
     ScrollTrigger.refresh();           
     updateButtonColors(route.path);    
-    trigherAnimation();               
+    triggerAnimation();               
     window.scrollTo({ top: 0, behavior: 'smooth' }); 
   });
 };
