@@ -7,7 +7,7 @@ document.documentElement.style.height = '100%';
 document.body.style.overflow = 'hidden';
 document.body.style.height = '100%';
 
-/*function animateValue(element, start, end, duration) {
+function animateValue(element, start, end, duration) {
   const range = end - start;
   let current = start;
   const increment = end > start ? 1 : -1;
@@ -20,10 +20,10 @@ document.body.style.height = '100%';
       clearInterval(timer);
     }
   }, stepTime);
-}*/
+}
 
 export default async function animateLoader() {
- /* const perfData = window.performance.timing;
+  const perfData = window.performance.timing;
   const estimatedTime = Math.abs(perfData.loadEventEnd - perfData.navigationStart);
   const time = Math.max(Math.floor((estimatedTime / 1000) % 60) * 100, 1200); 
   const loadbar = document.querySelector(".loadbar");
@@ -46,7 +46,7 @@ export default async function animateLoader() {
   DOM.intro = document.querySelector(".preloader-wrap")  
   DOM.shape = DOM.intro.querySelector("svg.shape");
   DOM.path = DOM.intro.querySelector("path.goey");
-*/
+
 const tl = gsap.timeline({
     paused: true,
     onComplete: afterPreload
@@ -133,6 +133,8 @@ const tl = gsap.timeline({
           });
         }
       });
-    //});
+    });
 })();
 } 
+
+animateLoader()
