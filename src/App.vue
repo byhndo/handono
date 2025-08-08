@@ -130,7 +130,6 @@ onMounted(async () => {
 
   animateLoader(() => {
     updateButtonColors(route.path);
-    triggerAnimation();
     firstLoad.value = false;
   });
 });
@@ -144,12 +143,11 @@ watch(
 
     await nextTick();
     updateButtonColors(newPath);
-
-    await nextTick(); 
-
+    triggerAnimation(); 
+    
     requestAnimationFrame(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      triggerAnimation(); 
+      
 	});
 
   }
