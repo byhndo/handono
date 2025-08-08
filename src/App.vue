@@ -114,8 +114,8 @@ const lenis = new Lenis({
  smoothWheel: true,
  touchMultiplier: 0.5,
  wheelMultiplier: 1, 
- touchInertiaMultiplier: 50,
- syncTouch: false,
+ touchInertiaMultiplier: 35,
+ syncTouch: true,
  autoResize: true
 });
 
@@ -129,7 +129,7 @@ gsap.ticker.add((time)=>{
   lenis.raf(time * 1000)
 })
 
-gsap.ticker.lagSmoothing(0);  
+gsap.ticker.lagSmoothing(0);
   
   await nextTick(); 
 
