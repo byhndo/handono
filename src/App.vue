@@ -61,7 +61,7 @@ const afterEnter = async (el, done) => {
   await router.isReady();	
   await nextTick();
 	
-  animateLoader(() => {
+  requestAnimationFrame(() => {
 	afterPreload(el);
     ScrollTrigger.refresh();
     done();
