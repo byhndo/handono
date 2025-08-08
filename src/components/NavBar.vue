@@ -1,9 +1,16 @@
 <script setup>
-import { onMounted, ref } from 'vue';
+import { onMounted } from 'vue';
 
-defineExpose({
-  btnNav1,
-  btnNav2
+const props = defineProps({
+  goToBio: Function,
+  goToPhotos: Function,
+  btnNav1: Object,
+  btnNav2: Object
+});
+
+onMounted(() => {
+  props.btnNav1.value = document.querySelector('.btn-about');
+  props.btnNav2.value = document.querySelector('.btn-photos');
 });
 </script>
 
