@@ -63,6 +63,19 @@ gsap.set(".sub-title", {
   opacity:1
 });
 
+gsap.to('.header', {  
+ onComplete: () => {
+  gsap.to(".header", {  
+   y: "5dvh",
+   ease: "cubic.out",
+   scrollTrigger: {
+    scrub: 3.5,
+    trigger: '.header',
+    start: 'top top'
+  }
+  })
+    }
+});
 
 	    
 (function () {
@@ -215,19 +228,6 @@ gsap.to('.indicator', {
 }
 }, "+=2");
                     
-gsap.to('.header', {  
- onComplete: () => {
-  gsap.to(".header", {  
-   y: "5dvh",
-   ease: "cubic.out",
-   scrollTrigger: {
-    scrub: 3.5,
-    trigger: '.header',
-    start: 'top top'
-  }
-  })
-    }
-});
 
 setupReveal(el);
 			 
