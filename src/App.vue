@@ -149,9 +149,9 @@ watch(
 
     requestAnimationFrame(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+      triggerAnimation(); 
+	});
 
-    triggerAnimation(); 
   }
 );
 </script>
