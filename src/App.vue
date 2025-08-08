@@ -201,8 +201,8 @@ watch(
 <h1>Bayu<br>Handono</h1> 
 <div class="sub-title">Life Sucks and Then You Die!</div>
 </div>	
-	
-<router-view v-slot="{ Component }">
+<Preloader v-if="!isReady" />	
+<router-view v-if="isReady" v-slot="{ Component }">
   <transition appear name="slide-fade" mode="out-in" @before-enter="beforeEnter" @after-enter="afterEnter" @after-leave="afterLeave">
     <component :is="Component" :key="$route.fullPath" />
   </transition>
