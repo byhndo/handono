@@ -140,11 +140,12 @@ await router.isReady();
 
 	await nextTick();
 
-await animateLoader(() => {  	  
+animateLoader(() => {  	  
     updateButtonColors(route.path);
     triggerAnimation();
     firstLoad.value = false;
 	contentShow();
+	await setupReveal(el);
   });	  
 });
 
