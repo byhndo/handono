@@ -1,4 +1,4 @@
-import './anime.min.js';
+import './anime.js';
 
 const anime = window.anime;
 export default anime;
