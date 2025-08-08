@@ -159,7 +159,7 @@ onMounted(() => {
         router.replace('/bio');
         bg.value = 'bio';
       }
-      nextTick(() => {
+      animateLoader(() => {
 	updateButtonColors(route.path); 
         triggerAnimation();
         firstLoad.value = false;
