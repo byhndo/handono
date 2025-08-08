@@ -52,20 +52,21 @@ const btnNav2 = ref(null);
 const beforeEnter = async (el, done) => {
   await nextTick();
   await preloadImages(el);
-  ScrollTrigger.refresh();
   done(); 
 }
 
-const afterEnter = async (el, done) => {                              
-  await router.isReady();	
-  await nextTick();
-	
-  requestAnimationFrame(() => {
-	setupReveal(el);
-    ScrollTrigger.refresh();
-    done();
-  });    
-}; 
+const afterEnter = async (el, done) => {
+  await router.isReady();
+  await nextTick();
+
+  if (firstLoad.value) return done(); 
+
+  requestAnimationFrame(() => {
+    setupReveal(el);
+    ScrollTrigger.refresh();
+    done();
+  });
+};
 
 const afterLeave = (el) => {
   if (el.ctx) {
@@ -98,7 +99,7 @@ const goToPhotos = async () => {
   }
 
   requestAnimationFrame(() => {
-    window.scrollTo({ top: 0, behvior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
   triggerAnimation();
