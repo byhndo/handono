@@ -11,7 +11,6 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import animateLoader from './utils/animateLoader';
 import animePath from './utils/animePath';
 import preloadImages from './utils/preloadImages';
-//import NavBar from './components/NavBar.vue';
 import anime from 'animejs/lib/anime.es.js';
 import Particles from './utils/particles';
 import Lenis from '@studio-freight/lenis';
@@ -26,7 +25,6 @@ const bg = ref('bio');
 const firstLoad = ref(true);
 const btnNav1 = ref(null);
 const btnNav2 = ref(null);
-//const navBarRef = ref(null)
 
 const beforeEnter = async (el) => {
   await nextTick();
@@ -149,14 +147,6 @@ watch(
   <path id="photosPath" fill="var(--dark)" d="M 0 100 V 100 Q 50 100 100 100 V 100 z" />
 </svg>
 	
-<!--<NavBar
-  :goToBio="goToBio"
-  :goToPhotos="goToPhotos"
-  :btnNav1="btnNav1"
-  :btnNav2="btnNav2"
-  ref="navBarRef"
-/> -->
-
 <div class="wrapnav">
 <div class="nav theme">
 <button @click="goToBio" ref="btnNav1" class="particles-button">About</button> 
