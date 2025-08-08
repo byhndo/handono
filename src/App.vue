@@ -144,6 +144,8 @@ animateLoader(() => {
     updateButtonColors(route.path);
     triggerAnimation();
     firstLoad.value = false; 
+	const el = document.querySelector('.router-view');
+afterPreload(el);
   });	  
 });
 
