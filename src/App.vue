@@ -143,9 +143,7 @@ await router.isReady();
 animateLoader(() => {  	  
     updateButtonColors(route.path);
     triggerAnimation();
-    firstLoad.value = false;
-	const container = document.querySelector(".router-view"); // pastikan ini targetnya
-  setupReveal(container); 
+    firstLoad.value = false; 
   });	  
 });
 
