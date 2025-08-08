@@ -145,7 +145,6 @@ animateLoader(() => {
     updateButtonColors(route.path);
     triggerAnimation();
     firstLoad.value = false; 
-	isReady.value = true;
   });	  
 });
 
@@ -200,9 +199,8 @@ watch(
 </svg> 
 <h1>Bayu<br>Handono</h1> 
 <div class="sub-title">Life Sucks and Then You Die!</div>
-</div>	
-<Preloader v-if="!isReady" />	
-<router-view v-if="isReady" v-slot="{ Component }">
+</div>		
+<router-view v-slot="{ Component }">
   <transition appear name="slide-fade" mode="out-in" @before-enter="beforeEnter" @after-enter="afterEnter" @after-leave="afterLeave">
     <component :is="Component" :key="$route.fullPath" />
   </transition>
