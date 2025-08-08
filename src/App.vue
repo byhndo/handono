@@ -111,6 +111,7 @@ onMounted(async() => {
     direction: 'vertical',
     gestureDirection: 'vertical',
     smooth: true,
+	smoothTouch: true,
     smoothWheel: true,
     touchMultiplier: 3,
     wheelMultiplier: 3,
