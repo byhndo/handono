@@ -95,11 +95,11 @@ const goToPhotos = () => {
       }
 };
 
-onMounted(async () => {
-  await router.isReady();
+onMounted(() => {
+ router.isReady();
 
   if (firstLoad.value && route.path !== '/bio') {
-    await router.replace('/bio');
+    router.replace('/bio');
     bg.value = 'bio';
   }
 
@@ -126,12 +126,14 @@ onMounted(async () => {
 
   gsap.ticker.lagSmoothing(0);
 
-  await nextTick();
+  nextTick(() => {
 
   animateLoader(() => {
     updateButtonColors(route.path);
+	triggerAnimation();
     firstLoad.value = false;
   });
+ });	  
 });
 
 watch(
