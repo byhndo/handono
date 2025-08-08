@@ -1,5 +1,5 @@
 //import anime from 'animejs/lib/anime.es.js';
-import anime from './utils/anime.js';
+import anime from './utils/anime-wrapper.js';
 
 
 const is = {
