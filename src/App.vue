@@ -137,7 +137,7 @@ onMounted(async() => {
 });
 
 watch(() => route.path, async(newPath) => {
-  if (firstLoad.value) return;
+ // if (firstLoad.value) return;
 
   bg.value = newPath === '/bio' ? 'bio' : 'photos';
 
