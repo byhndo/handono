@@ -60,13 +60,16 @@ const beforeEnter = async (el) => {
 }
 
 const afterEnter = async (el) => {
-  await router.isReady();
-  await nextTick();
+  await router.isReady();
+  await nextTick();
 
-  requestAnimationFrame(() => {
-    setupReveal(el);	
-    ScrollTrigger.refresh();
-  });
+  requestAnimationFrame(() => {
+    setupReveal(el);                    
+    ScrollTrigger.refresh();           
+    updateButtonColors(route.path);    
+    animePath(bg.value);               
+    window.scrollTo({ top: 0, behavior: 'smooth' }); 
+  });
 };
 
 const afterLeave = (el) => {
@@ -136,17 +139,8 @@ onMounted(async() => {
   });	  
 });
 
-watch(() => route.path, async(newPath) => {
- // if (firstLoad.value) return;
-
+watch(() => route.path, (newPath) => {
   bg.value = newPath === '/bio' ? 'bio' : 'photos';
-
-  await nextTick();
-  updateButtonColors(newPath);
-    requestAnimationFrame(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      animePath(bg.value); 
-    });
 });
 </script>
 
