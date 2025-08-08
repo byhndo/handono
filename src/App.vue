@@ -47,9 +47,14 @@ const updateButtonColors = (path) => {
   });
 };
 
+const triggerAnimation = () => {
+  animePath(bg.value);      
+};
+
 const beforeEnter = async (el) => {
   await nextTick();
   await preloadImages(el);
+  triggerAnimation();
   ScrollTrigger.refresh();
 }
 
@@ -58,8 +63,7 @@ const afterEnter = async (el) => {
   await nextTick();
 
   requestAnimationFrame(() => {
-    setupReveal(el);
-	//triggerAnimation();
+    setupReveal(el);	
     ScrollTrigger.refresh();
   });
 };
@@ -69,10 +73,6 @@ const afterLeave = (el) => {
     el.ctx.revert();
     delete el.ctx;	      
   }
-};
-
-const triggerAnimation = () => {
-  animePath(bg.value);      
 };
 
 const goToBio = () => {
@@ -92,7 +92,7 @@ const goToPhotos = () => {
       } else {
         bg.value = 'photos';
         router.push('/photos');
-     }
+      }
 };
 
 onMounted(async () => {
@@ -142,8 +142,7 @@ watch(
     if (firstLoad.value) return;
 
     await nextTick();
-    updateButtonColors(newPath);
-    triggerAnimation(); 
+    updateButtonColors(newPath);    
     
     requestAnimationFrame(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
