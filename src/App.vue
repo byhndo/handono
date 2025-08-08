@@ -144,7 +144,7 @@ watch(
     await nextTick(); 
 
     requestAnimationFrame(() => {
-      animePath(bg.value); 
+      triggerAnimation();
     });
 
     updateButtonColors(newPath);
