@@ -24,16 +24,14 @@ const route = useRoute();
 const router = useRouter();
 const bg = ref('bio');
 const firstLoad = ref(true);
-//const navBarRef = ref(null)
 const btnNav1 = ref(null);
 const btnNav2 = ref(null);
-
+//const navBarRef = ref(null)
 
 const beforeEnter = async (el) => {
   await nextTick();
   await preloadImages(el);
   ScrollTrigger.refresh();
-  //done(); 
 }
 
 const afterEnter = async (el) => {
@@ -43,7 +41,6 @@ const afterEnter = async (el) => {
   requestAnimationFrame(() => {
     setupReveal(el);
     ScrollTrigger.refresh();
-    //done();
   });
 };
 
