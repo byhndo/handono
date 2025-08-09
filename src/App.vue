@@ -63,10 +63,10 @@ const afterEnter = async (el) => {
   await router.isReady();
   await nextTick();
 
-  animateLoader(() => {
+ // requestAnimationFrame(() => {
     setupReveal(el);                    
     ScrollTrigger.refresh();           
-  });
+ // });
 };
 
 const afterLeave = (el) => {
