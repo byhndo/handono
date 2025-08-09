@@ -85,7 +85,8 @@ const goToBio = () => {
 };
 
 const goToPhotos = () => {
-      if (route.path === '/photos') {        window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (route.path === '/photos') {        
+		window.scrollTo({ top: 0, behavior: 'smooth' });
      
       } else {
         bg.value = 'photos';
