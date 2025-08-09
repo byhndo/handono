@@ -112,7 +112,7 @@ const lenis = new Lenis({
   smoothWheel: true,
   touchMultiplier: 0.5,
   touchInertiaMultiplier: 35,
-  syncTouch: false,   
+  syncTouch: true,   
   autoResize: true
 });
 
