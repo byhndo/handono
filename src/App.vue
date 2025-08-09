@@ -129,7 +129,6 @@ gsap.ticker.lagSmoothing(0);
 await nextTick(); 
 
 animateLoader();
-});
 	
 });
 
