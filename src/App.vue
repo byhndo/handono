@@ -93,7 +93,6 @@ const goToPhotos = () => {
       }
 };
 
-let ctx;
 onMounted(async() => {
 await router.isReady();
 
@@ -120,15 +119,7 @@ gsap.ticker.lagSmoothing(0);
 
 await nextTick();
 requestAnimationFrame(() => {
-  animateLoader();
-
-ctx = gsap.context(() => {
-    setupReveal(el)
-  }, container);
-	
-onBeforeUnmount(() => {
-  ctx && ctx.revert();
-});
+  animateLoader();	
 });
 
 });
