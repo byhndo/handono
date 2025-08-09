@@ -98,6 +98,7 @@ onMounted(async() => {
 await router.isReady();
   if (firstLoad.value && route.path !== '/bio') {
     await router.replace('/bio');
+	await animateLoader();
     bg.value = 'bio';
 }
 
