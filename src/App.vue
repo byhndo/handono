@@ -123,6 +123,11 @@ gsap.ticker.lagSmoothing(0);
 
 await animateLoader();
 
+  await nextTick();  
+  setupReveal(el); 
+
+  firstLoad.value = false;
+
 });
 
 watch(() => route.path, (newPath) => {
