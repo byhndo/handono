@@ -62,7 +62,7 @@ const afterEnter = async (el) => {
   await router.isReady();
   await nextTick();
 
-  animateLoader(() => {
+  requestAnimationFrame(() => {
 	ScrollTrigger.refresh();
     setupReveal(el);                                  
   });
@@ -122,9 +122,10 @@ gsap.ticker.add(time => {
 });
 
 gsap.ticker.lagSmoothing(0);
-  
-/*await nextTick(); 
-animateLoader();*/
+
+if (firstLoad.value) return	
+await nextTick(); 
+animateLoader();
 	
 });
 
