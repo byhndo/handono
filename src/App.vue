@@ -132,10 +132,10 @@ gsap.ticker.lagSmoothing(0);
   
   await nextTick(); 
 
-animateLoader(() => 
+animateLoader(() => {
   updateButtonColors(route.path);
   triggerAnimation();
-  firstLoad.value = true;
+  firstLoad.value = false;
 });
 	
 });
