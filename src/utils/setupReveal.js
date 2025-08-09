@@ -314,5 +314,7 @@ tl.to(footer, {
 });	
 	
 }, container); /* ctx */
+
+return () => ctx.revert();
 		
 } /* setupReveal */
