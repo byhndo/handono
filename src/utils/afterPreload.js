@@ -1,9 +1,7 @@
 import contentShow from './contentShow.js';
-import setupReveal from './setupReveal.js';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-export default function afterPreload(container) {
+export default function afterPreload() {
   contentShow();
-  setupReveal(container); 
   ScrollTrigger.refresh();
 }
