@@ -54,8 +54,7 @@ const triggerAnimation = () => {
 
 const beforeEnter = async (el) => {
   await nextTick();
-  await preloadImages(el);
-  
+  await preloadImages(el); 
   ScrollTrigger.refresh();
 }
 
@@ -63,10 +62,10 @@ const afterEnter = async (el) => {
   await router.isReady();
   await nextTick();
 
- // requestAnimationFrame(() => {
-    setupReveal(el);                    
-    ScrollTrigger.refresh();           
- // });
+  requestAnimationFrame(() => {
+	ScrollTrigger.refresh();
+    setupReveal(el);                                  
+  });
 };
 
 const afterLeave = (el) => {
