@@ -62,7 +62,7 @@ const afterEnter = async (el) => {
   await nextTick();
   requestAnimationFrame(() => {
     ScrollTrigger.refresh();
-    setupReveal(el);      
+    //setupReveal(el);      
   });
 };
 
@@ -131,7 +131,8 @@ watch(() => route.path, (newPath) => {
   bg.value = newPath === '/bio' ? 'bio' : 'photos';
 	
 	updateButtonColors(route.path);    
-    triggerAnimation();               
+    triggerAnimation(); 
+	setupReveal(el);
     window.scrollTo({ top: 0, behavior: 'smooth' }); 
 });
 </script>
