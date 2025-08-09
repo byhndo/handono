@@ -137,7 +137,7 @@ animateLoader(() => {
   triggerAnimation();
   firstLoad.value = false;
 
-const el = document.querySelector('main'); 
+const el = document.querySelector('container'); 
   if (el) {
     ScrollTrigger.refresh();
     setupReveal(el);
