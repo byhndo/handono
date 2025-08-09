@@ -123,7 +123,7 @@ gsap.ticker.add(time => {
 gsap.ticker.lagSmoothing(0);
 
 await nextTick();  
-await animateLoader(afterPreload);
+await animateLoader();
 
 });
 
