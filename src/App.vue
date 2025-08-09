@@ -61,13 +61,15 @@ const afterEnter = async (el) => {
   await router.isReady();
   await nextTick();
 
-  if (!firstLoad.value) {  
+  if (firstLoad.value) {
     requestAnimationFrame(() => {
       ScrollTrigger.refresh();
-      setupReveal(el);                                  
+      setupReveal(el);
+      firstLoad.value = false;
     });
   }
 };
+
 
 const afterLeave = (el) => {
   if (el.ctx) {
