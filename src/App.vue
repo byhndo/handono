@@ -124,7 +124,7 @@ requestAnimationFrame(() => {
 
 ctx = gsap.context(() => {
     setupReveal(el)
-  }, container)
+  }, container);
 	
 });
 
