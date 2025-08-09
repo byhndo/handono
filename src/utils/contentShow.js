@@ -4,7 +4,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Particles from './particles.js'; 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
-
 export default function contentShow() {
 
 document.documentElement.style.overflow = 'auto';
