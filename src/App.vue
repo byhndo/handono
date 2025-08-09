@@ -135,7 +135,7 @@ gsap.ticker.lagSmoothing(0);
 animateLoader(() => 
   updateButtonColors(route.path);
   triggerAnimation();
-  //firstLoad.value = false;
+  firstLoad.value = true;
 });
 	
 });
