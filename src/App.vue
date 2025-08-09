@@ -94,14 +94,6 @@ const goToPhotos = () => {
       }
 };
 
-function onPreloaderDone() {
-  const el = document.querySelector('[data-router-view]') || document.body
-  requestAnimationFrame(() => {
-    ScrollTrigger.refresh()
-    animateLoader(el)
-  })
-}
-
 onMounted(async() => {
 await router.isReady();
 
@@ -126,8 +118,11 @@ gsap.ticker.add(time => {
 
 gsap.ticker.lagSmoothing(0);
 	
-//await nextTick(); 
-onPreloaderDone()
+await nextTick(); 
+	requestAnimationFrame(() => {
+    ScrollTrigger.refresh()
+    animateLoader(el)
+  })
 	
 });
 
