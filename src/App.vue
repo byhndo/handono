@@ -131,8 +131,8 @@ gsap.ticker.add((time)=>{
 gsap.ticker.lagSmoothing(0);
   
   await nextTick(); 
-animateLoader();
-  afterPreload(() => {
+afterPreload();
+  animateLoader(() => {
     updateButtonColors(route.path);
 	triggerAnimation();
     firstLoad.value = false;
