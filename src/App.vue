@@ -103,31 +103,27 @@ onMounted(async() => {
   }
 
 const lenis = new Lenis({
- duration: 2,
- easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
- direction: "vertical",
- gestureDirection: "vertical",
- smooth: true,
- smoothTouch: true,
- smoothWheel: true,
- touchmultiplier: 2,
- syncTouch: true,
- autoResize: true
+  duration: 2,
+  easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  direction: "vertical",
+  gestureDirection: "vertical",
+  smooth: true,
+  smoothTouch: 1, 
+  smoothWheel: true,
+  touchMultiplier: 2, 
+  syncTouch: false,   
+  autoResize: true
 });
 
-lenis.on('scroll', (e) => {
-  console.log(e);
-})
+lenis.on('scroll', ScrollTrigger.update);
 
-lenis.on('scroll', ScrollTrigger.update)
-
-gsap.ticker.add((time)=>{
-  lenis.raf(time * 1000)
-})
+gsap.ticker.add(time => {
+  lenis.raf(time * 1000);
+});
 
 gsap.ticker.lagSmoothing(0);
   
-  await nextTick(); 
+await nextTick(); 
 
 animateLoader(() => {
   updateButtonColors(route.path);
