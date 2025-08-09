@@ -122,9 +122,7 @@ gsap.ticker.add(time => {
 gsap.ticker.lagSmoothing(0);
 
 await nextTick();  
-await animateLoader(() => {
-	firstLoad.value = false;
-});
+await animateLoader();
 
 });
 
