@@ -15,7 +15,6 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 import preloadImages from './utils/preloadImages';
 import animateLoader from './utils/animateLoader';
-import afterPreload from './utils/afterPreload';
 import setupReveal from './utils/setupReveal';
 import animePath from './utils/animePath';
 import Particles from './utils/particles';
@@ -64,8 +63,7 @@ const afterEnter = async (el) => {
 
   requestAnimationFrame(() => {
 	ScrollTrigger.refresh();
-	animateLoader();
-    setupReveal(el);                                  
+    await setupReveal(el);                                  
   });
 };
 
@@ -118,7 +116,8 @@ gsap.ticker.add(time => {
 });
 
 gsap.ticker.lagSmoothing(0);	
-	
+animateLoader();
+
 });
 
 watch(() => route.path, (newPath) => {
