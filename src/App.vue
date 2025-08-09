@@ -121,7 +121,7 @@ gsap.ticker.lagSmoothing(0);
 await nextTick(); 
 	requestAnimationFrame(() => {
     ScrollTrigger.refresh()
-    animateLoader(el)
+    animateLoader()
   })
 	
 });
