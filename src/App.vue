@@ -64,6 +64,7 @@ const afterEnter = async (el) => {
 
   requestAnimationFrame(() => {
 	ScrollTrigger.refresh();
+	animateLoader();
     setupReveal(el);                                  
   });
 };
@@ -116,13 +117,7 @@ gsap.ticker.add(time => {
   lenis.raf(time * 1000);
 });
 
-gsap.ticker.lagSmoothing(0);
-	
-await nextTick(); 
-	requestAnimationFrame(() => {
-    ScrollTrigger.refresh()
-    animateLoader()
-  })
+gsap.ticker.lagSmoothing(0);	
 	
 });
 
