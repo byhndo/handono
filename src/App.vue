@@ -93,6 +93,7 @@ const goToPhotos = () => {
       }
 };
 
+let ctx;
 onMounted(async() => {
 await router.isReady();
 
@@ -122,9 +123,13 @@ requestAnimationFrame(() => {
   animateLoader();
 
 ctx = gsap.context(() => {
-    setupReveal(container.value)
-  }, container.value)
+    setupReveal(el)
+  }, container)
 	
+});
+
+onBeforeUnmount(() => {
+  ctx && ctx.revert();
 });
 
 watch(() => route.path, (newPath) => {
