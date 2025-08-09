@@ -53,6 +53,8 @@ const triggerAnimation = () => {
 };
 
 const beforeEnter = async (el) => {
+if (firstLoad.value) return  
+
   await nextTick();
   await preloadImages(el); 
   ScrollTrigger.refresh();
@@ -126,9 +128,7 @@ gsap.ticker.lagSmoothing(0);
   
 await nextTick(); 
 
-animateLoader(() => {	
-if (firstLoad.value) return  
-  updateButtonColors(route.path);
+animateLoader();
 });
 	
 });
