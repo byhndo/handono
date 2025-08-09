@@ -98,7 +98,6 @@ onMounted(async() => {
 await router.isReady();
   if (firstLoad.value && route.path !== '/bio') {
     await router.replace('/bio');
-	await animateLoader();
     bg.value = 'bio';
 }
 
@@ -123,8 +122,8 @@ gsap.ticker.add(time => {
 
 gsap.ticker.lagSmoothing(0);
 
-//await nextTick();  
-//await animateLoader();
+await nextTick();  
+await animateLoader();
 
 });
 
