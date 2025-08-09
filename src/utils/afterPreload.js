@@ -4,6 +4,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default function afterPreload(container) {
   contentShow();
-  setupReveal(container); 
+ // setupReveal(container); 
   ScrollTrigger.refresh();
 }
