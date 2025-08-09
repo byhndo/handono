@@ -129,7 +129,7 @@ await nextTick();
 
 animateLoader(() => {
   updateButtonColors(route.path);
-  triggerAnimation();
+  firstLoad.value = false;
 });
 	
 });
