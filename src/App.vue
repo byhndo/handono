@@ -136,6 +136,12 @@ animateLoader(() => {
   updateButtonColors(route.path);
   triggerAnimation();
   firstLoad.value = false;
+
+const el = document.querySelector('main'); 
+  if (el) {
+    ScrollTrigger.refresh();
+    setupReveal(el);
+	}	
 });
 	
 });
