@@ -96,12 +96,12 @@ const goToPhotos = () => {
 
 onMounted(async() => {
  await router.isReady();
-
+/*
   if (firstLoad.value && route.path !== '/bio') {
    await router.replace('/bio');
     bg.value = 'bio';
   }
-
+*/
 const lenis = new Lenis({
   duration: 2,
   easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -124,10 +124,6 @@ gsap.ticker.add(time => {
 gsap.ticker.lagSmoothing(0);
 	
 await nextTick(); 
-	if (firstLoad.value) {
-      firstLoad.value = false;
-    return; 
-	}
 animateLoader();
 	
 });
