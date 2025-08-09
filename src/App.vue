@@ -136,7 +136,7 @@ animateLoader(() => {
   afterPreload(); 
   updateButtonColors(route.path);
   triggerAnimation();
-  firstLoad.value = false;
+ // firstLoad.value = false;
 });
 	
 });
