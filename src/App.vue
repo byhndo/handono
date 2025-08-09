@@ -130,10 +130,6 @@ await nextTick();
 animateLoader(() => {
   updateButtonColors(route.path);
   triggerAnimation();
-
-    ScrollTrigger.refresh();
-    setupReveal(el);
-
 });
 	
 });
