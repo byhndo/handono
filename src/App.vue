@@ -126,7 +126,7 @@ gsap.ticker.add(time => {
 
 gsap.ticker.lagSmoothing(0);
 	
-await nextTick(); 
+//await nextTick(); 
 onPreloaderDone()
 	
 });
