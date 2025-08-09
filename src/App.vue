@@ -59,6 +59,8 @@ const beforeEnter = async (el) => {
 }
 
 const afterEnter = async (el) => {
+if (firstLoad.value) return  
+
   await router.isReady();
   await nextTick();
   requestAnimationFrame(() => {
