@@ -61,8 +61,8 @@ const afterEnter = async (el) => {
   await router.isReady();
   await nextTick();
   requestAnimationFrame(() => {
-    ScrollTrigger.refresh();
-    //setupReveal(el);      
+   // ScrollTrigger.refresh();
+    setupReveal(el);      
   });
 };
 
@@ -132,7 +132,6 @@ watch(() => route.path, (newPath) => {
 	
 	updateButtonColors(route.path);    
     triggerAnimation(); 
-	setupReveal(el);
     window.scrollTo({ top: 0, behavior: 'smooth' }); 
 });
 </script>
