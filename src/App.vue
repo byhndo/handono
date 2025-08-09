@@ -438,10 +438,6 @@ tl.to(footer, {
 	
 }, container); /* ctx */
 		
-} /* setupReveal */
-
-
-
 
 						
 });
