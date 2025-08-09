@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages (Clean Cache)
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -15,38 +15,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      
       - name: Checkout repository
         uses: actions/checkout@v3
-      
+
       - name: Setup Node.js 20
         uses: actions/setup-node@v3
         with:
           node-version: 20
           cache: 'npm'
-      
+
+      - name: Check Node version
+        run: node -v
+
       - name: Install dependencies
         run: npm install
-      
-      - name: Clean old dist
-        run: rm -rf dist
-      
-      - name: Set BUILD_VERSION for cache busting
-        run: |
-          BUILD_VERSION=$(date +%s)
-          sed -i "s/%BUILD_VERSION%/${BUILD_VERSION}/g" index.html
-      
+
       - name: Build
         run: npm run build
 
-       - name: Remove default Vite favicon
-        run: |
-          rm -f dist/vite.svg
-          rm -f dist/assets/vite*.svg || true
-
-       - name: Deploy to GitHub Pages (clean)
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          force_orphan: true
