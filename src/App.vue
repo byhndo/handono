@@ -95,7 +95,7 @@ const goToPhotos = () => {
 
 onMounted(async() => {
 await router.isReady();
-  if (/*firstLoad.value &&*/ route.path !== '/bio') {
+  if (firstLoad.value && route.path !== '/bio') {
     await router.replace('/bio');
     bg.value = 'bio';
 }
@@ -122,7 +122,9 @@ gsap.ticker.add(time => {
 gsap.ticker.lagSmoothing(0);
 
 await nextTick();  
-await animateLoader();
+await animateLoader(() => {
+	firstLoad.value = false;
+});
 
 });
 
