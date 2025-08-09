@@ -12,6 +12,10 @@ document.documentElement.style.height = 'auto';
 document.body.style.overflow = 'auto';
 document.body.style.height = 'auto';
 
+const easing = "expoScale(0.5,7,none)";
+const dur = 1;
+const once = "play none none reset";
+const delaytl = .5;
 			
 const title = document.querySelector("h1");
 const feBlur = document.querySelector(`#noisetitle feGaussianBlur`);
