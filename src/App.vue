@@ -126,10 +126,11 @@ ctx = gsap.context(() => {
     setupReveal(el)
   }, container);
 	
-});
-
 onBeforeUnmount(() => {
   ctx && ctx.revert();
+});
+});
+
 });
 
 watch(() => route.path, (newPath) => {
