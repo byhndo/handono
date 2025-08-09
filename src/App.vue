@@ -63,7 +63,7 @@ if (firstLoad.value) return
 const afterEnter = async (el) => {  
   await router.isReady();
   await nextTick();
-
+firstLoad.value = false;
   requestAnimationFrame(() => {
 	ScrollTrigger.refresh();
     setupReveal(el);                                  
